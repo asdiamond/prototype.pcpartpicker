@@ -30,73 +30,73 @@
             android:text="CPU Cooler"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button16" />
+            android:id="@+id/cooler_btn" />
 
         <Button
             android:text="Motherboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button15" />
+            android:id="@+id/motherb_btn" />
 
         <Button
             android:text="Memory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button13" />
+            android:id="@+id/memory_btn" />
 
         <Button
             android:text="Storage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button10" />
+            android:id="@+id/storage_btn" />
 
         <Button
             android:text="Video Card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button9" />
+            android:id="@+id/videoc_btn" />
 
         <Button
             android:text="Case"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button8" />
+            android:id="@+id/case_btn" />
 
         <Button
             android:text="Power Supply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button7" />
+            android:id="@+id/powersup_btn" />
 
         <Button
             android:text="Optical Drive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button6" />
+            android:id="@+id/opticaldr_btn" />
 
         <Button
             android:text="OS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button18" />
+            android:id="@+id/os_btn" />
 
         <Button
             android:text="Software"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button20" />
+            android:id="@+id/software_btn" />
 
         <Button
             android:text="Monitor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button21" />
+            android:id="@+id/monitor_btn" />
 
         <Button
             android:text="Other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button19" />
+            android:id="@+id/other_btn" />
     </GridLayout>
 
 </RelativeLayout>

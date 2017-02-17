@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CodeMineProject1.iml" filepath="$PROJECT_DIR$/CodeMineProject1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CodeMineProject1.iml" filepath="$PROJECT_DIR$/CodeMineProject1.iml" />
       <module fileurl="file://$PROJECT_DIR$/PCPartPicker.iml" filepath="$PROJECT_DIR$/PCPartPicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
