@@ -36,8 +36,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    Button moboBtn;
+    Button motherBoardBtn;
     public void createMotherboardBtn(){
+        motherBoardBtn = (Button)findViewById(R.id.motherb_btn);
+        final Intent startActivityIntent = new Intent(MainActivity.this, MotherboardActivity.class);
+        motherBoardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Starting Motherboard activity", Toast.LENGTH_SHORT).show();
+                MainActivity.this.startActivity(startActivityIntent);
+            }
+        });
 
     }
 
