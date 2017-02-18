@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="temp3"
+        android:id="@+id/temp3"
+        app:showAsAction="never"/>
+    <item
+        android:title="filter"
+        android:id="@+id/filter_menu_itemmemory"
+        android:icon="@drawable/ic_filter_list_white_24dp"
+        app:showAsAction="always"/>
+
+</menu>
