@@ -1,6 +1,7 @@
 package com.example.kevinparker.pcpartpicker;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -32,6 +33,12 @@ public class CPUActivity extends AppCompatActivity {
         LayoutInflater inflater = (LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.my_custom_dialog, (ViewGroup)findViewById(R.id.customDialog_root_element));
         yourDialog.setContentView(layout);
+        yourDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                Toast.makeText(CPUActivity.this, "Dismissed", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         Button b = (Button)yourDialog.findViewById(R.id.button);
         b.setOnClickListener(new View.OnClickListener() {
