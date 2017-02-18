@@ -51,7 +51,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     Button memoryBtn;
-    public void createMemoryBtn(){}
+    public void createMemoryBtn(){
+        memoryBtn = (Button)findViewById(R.id.memory_btn);
+        final Intent startActivityIntent = new Intent(MainActivity.this, MemoryActivity.class);
+        memoryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Starting Memory Activity", Toast.LENGTH_SHORT).show();
+                MainActivity.this.startActivity(startActivityIntent);
+            }
+        });
+    }
 
     Button gpuBtn;
     public void createVideoCardBtn(){}
@@ -87,5 +97,6 @@ public class MainActivity extends AppCompatActivity {
         createCPUBtn();
         createCPUCoolerBtn();
         createMotherboardBtn();
+        createMemoryBtn();
     }
 }
