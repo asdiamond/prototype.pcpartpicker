@@ -20,12 +20,15 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".CPUCoolerActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MotherboardActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MemoryActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".GpuActivity"
             android:parentActivityName=".MainActivity"></activity>
     </application>
 

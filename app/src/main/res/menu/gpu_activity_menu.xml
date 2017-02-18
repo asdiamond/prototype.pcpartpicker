@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Filter"
+        android:id="@+id/filterGPUactivity"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_filter_list_white_24dp" />
+
+    <item
+        android:title="Temp"
+        android:id="@+id/temp" />
+</menu>

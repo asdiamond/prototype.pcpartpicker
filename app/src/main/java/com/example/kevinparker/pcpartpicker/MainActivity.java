@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -64,7 +63,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     Button gpuBtn;
-    public void createVideoCardBtn(){}
+
+    public void createVideoCardBtn() {
+        gpuBtn = (Button) findViewById(R.id.videoc_btn);
+        final Intent startActivityIntent = new Intent(MainActivity.this, GpuActivity.class);
+        gpuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(startActivityIntent);
+                Toast.makeText(MainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     Button oDriveBtn;
     public void createOpticalDriveBtn(){}
@@ -98,5 +108,6 @@ public class MainActivity extends AppCompatActivity {
         createCPUCoolerBtn();
         createMotherboardBtn();
         createMemoryBtn();
+        createVideoCardBtn();
     }
 }
