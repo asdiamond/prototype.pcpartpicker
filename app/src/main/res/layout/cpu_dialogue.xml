@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Lowest Price"
                     android:inputType="number"
-                    android:id="@+id/lowestprice"/>
+                    android:id="@+id/lowestpricecpu"/>
 
             </android.support.design.widget.TextInputLayout>
 

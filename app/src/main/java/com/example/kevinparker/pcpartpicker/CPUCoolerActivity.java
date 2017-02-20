@@ -9,13 +9,43 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class CPUCoolerActivity extends AppCompatActivity {
     Dialog cpuCoolerFilterDialog;
+    TextView tv1;
+    String lowestpricecpucooler;
+    EditText lowestpriceETcpucooler;
+    TextView lowestpricedtvcpucooler;
     ImageView closeBtn;
 
+    public void setLowestpricedtvcpucooler(String in){
+        this.lowestpricedtvcpucooler.setText(in);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.cpu_coolermenu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.filter_menu_itemcpucooler:
+                Toast.makeText(this, "Filter Selected", Toast.LENGTH_SHORT).show();
+                cpuCoolerFilterDialog.show();
+                break;
+            case R.id.temp1:
+                Toast.makeText(this, "Temp1 Selected", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,27 +69,5 @@ public class CPUCoolerActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.cpu_coolermenu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.filter_menu_itemcpucooler:
-                Toast.makeText(this, "Filter Selected", Toast.LENGTH_SHORT).show();
-                cpuCoolerFilterDialog.show();
-                break;
-            case R.id.temp1:
-                Toast.makeText(this, "Temp1 Selected", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

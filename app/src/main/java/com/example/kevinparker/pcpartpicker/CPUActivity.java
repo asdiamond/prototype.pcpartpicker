@@ -57,14 +57,14 @@ public class CPUActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//this enables the back button in the toolbar. IMPORTANT, in order for this to work
         // you must specify android:parentActivityName in the android manifest under the activity you are referencing.
 
-        lowestPriceDisplyTV = (TextView) findViewById(R.id.lowestprice);
+        lowestPriceDisplyTV = (TextView) findViewById(R.id.lowestpricedisplay);
         filterDialog = new Dialog(this);//android context.
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.my_custom_dialog, (ViewGroup) findViewById(R.id.customDialog_root_element));
+        View layout = inflater.inflate(R.layout.cpu_dialogue, (ViewGroup) findViewById(R.id.customDialog_root_element));
 
         filterDialog.setContentView(layout);
 
-        lowestPriceET = (EditText) filterDialog.findViewById(R.id.lowestprice);
+        lowestPriceET = (EditText) filterDialog.findViewById(R.id.lowestpricecpu);
         dismissBTN = (ImageView) filterDialog.findViewById(R.id.closeButton);//the "x" image in the top left
         dismissBTN.setOnClickListener(new View.OnClickListener() {
             @Override
