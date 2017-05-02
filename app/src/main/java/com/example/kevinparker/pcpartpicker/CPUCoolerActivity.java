@@ -9,21 +9,29 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class CPUCoolerActivity extends AppCompatActivity {
     Dialog cpuCoolerFilterDialog;
-    TextView tv1;
-    String lowestpricecpucooler;
-    EditText lowestpriceETcpucooler;
-    TextView lowestpricedtvcpucooler;
     ImageView closeBtn;
 
-    public void setLowestpricedtvcpucooler(String in){
-        this.lowestpricedtvcpucooler.setText(in);
+    public void createDialog() {
+        cpuCoolerFilterDialog = new Dialog(this);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.cpu_cooler_filter_dialog, (ViewGroup) findViewById(R.id.cpuCoolerRootElement));
+
+        cpuCoolerFilterDialog.setContentView(layout);
+
+        closeBtn = (ImageView) cpuCoolerFilterDialog.findViewById(R.id.cpuCoolerCloseButton);
+
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cpuCoolerFilterDialog.dismiss();
+            }
+        });
+
     }
 
     @Override
@@ -46,6 +54,7 @@ public class CPUCoolerActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,20 +63,6 @@ public class CPUCoolerActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Choose A CPU Cooler");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        cpuCoolerFilterDialog = new Dialog(this);
-        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.cpu_cooler_filter_dialog, (ViewGroup) findViewById(R.id.cpuCoolerRootElement));
-
-        cpuCoolerFilterDialog.setContentView(layout);
-
-        closeBtn = (ImageView) cpuCoolerFilterDialog.findViewById(R.id.cpuCoolerCloseButton);
-
-        closeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cpuCoolerFilterDialog.dismiss();
-            }
-        });
-
+        createDialog();
     }
 }

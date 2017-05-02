@@ -1,8 +1,8 @@
 package com.example.kevinparker.pcpartpicker;
 
 import android.app.Dialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,13 +16,7 @@ public class MotherboardActivity extends AppCompatActivity {
     Dialog motherboardActivityDialog;
     ImageView closeBtn;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_motherboard);
-
-        getSupportActionBar().setTitle("Choose a Motherboard");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    public void createDialog() {
         motherboardActivityDialog = new Dialog(this);
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
         View layout =  inflater.inflate(R.layout.motherboard_filter_dialogue,(ViewGroup) findViewById(R.id.motherboardFilterDialogRootElement));
@@ -36,7 +30,6 @@ public class MotherboardActivity extends AppCompatActivity {
                 motherboardActivityDialog.dismiss();
             }
         });
-
 
     }
 
@@ -59,5 +52,16 @@ public class MotherboardActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_motherboard);
+
+        getSupportActionBar().setTitle("Choose a Motherboard");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        createDialog();
     }
 }

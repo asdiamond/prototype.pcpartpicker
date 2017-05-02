@@ -9,12 +9,8 @@ import android.widget.Toast;
 
 public class GpuActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gpu);
-        getSupportActionBar().setTitle("Choose a Video Card");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    public void createDialog() {
+        //put the code to create the filter dialog here
     }
 
     @Override
@@ -38,5 +34,13 @@ public class GpuActivity extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_gpu);
+        getSupportActionBar().setTitle("Choose a Video Card");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

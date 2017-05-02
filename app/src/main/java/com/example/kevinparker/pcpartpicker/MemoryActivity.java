@@ -1,21 +1,15 @@
 package com.example.kevinparker.pcpartpicker;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 public class MemoryActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_memory);
-
-        getSupportActionBar().setTitle("Choose a memory");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+    public void createDialog() {
+        //put the code to create the filter dialog here
     }
 
     @Override
@@ -34,5 +28,15 @@ public class MemoryActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_memory);
+
+        getSupportActionBar().setTitle("Choose a memory");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 }

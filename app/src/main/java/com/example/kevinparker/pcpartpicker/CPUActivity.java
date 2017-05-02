@@ -16,15 +16,41 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class CPUActivity extends AppCompatActivity {
-    Dialog filterDialog;
-    TextView tv;
+    Dialog cpuFilterDialog;
     String lowestPriceStr;
     EditText lowestPriceET;
     TextView lowestPriceDisplyTV;
     ImageView dismissBTN;
 
-    public void setLowestPriceDisplyTV(String in) {
-        this.lowestPriceDisplyTV.setText(in);
+    public void createDialog() {
+        cpuFilterDialog = new Dialog(this);//android context.
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.cpu_dialogue, (ViewGroup) findViewById(R.id.customDialog_root_element));
+
+        cpuFilterDialog.setContentView(layout);
+
+        lowestPriceET = (EditText) cpuFilterDialog.findViewById(R.id.lowestpricecpu);
+        dismissBTN = (ImageView) cpuFilterDialog.findViewById(R.id.closeButton);//the "x" image in the top left
+        dismissBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lowestPriceStr = lowestPriceET.getText().toString();
+                //lowestPriceDisplyTV.setText("Dismissed");
+                //Toast.makeText(CPUActivity.this, lowestPriceET.getText().toString(), Toast.LENGTH_SHORT).show();
+                cpuFilterDialog.dismiss();
+            }
+        });
+
+        cpuFilterDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+//                lowestPriceET = (EditText)cpuFilterDialog.findViewById(R.id.lowestprice);
+//                lowestPriceStr = lowestPriceET.getText().toString();
+                Toast.makeText(CPUActivity.this, lowestPriceET.getText().toString(), Toast.LENGTH_SHORT).show();
+//                lowestPriceDisplyTV.setText(lowestPriceET.getText().toString());
+
+            }
+        });
     }
 
     //creates option menu
@@ -41,7 +67,7 @@ public class CPUActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.filter_menu_item:
-                filterDialog.show();//shows the dialogue for filtering items
+                cpuFilterDialog.show();//shows the dialogue for filtering items
                 break;
             case R.id.temp:
                 Toast.makeText(this, "Temp item selected", Toast.LENGTH_SHORT).show();
@@ -58,34 +84,8 @@ public class CPUActivity extends AppCompatActivity {
         // you must specify android:parentActivityName in the android manifest under the activity you are referencing.
 
         lowestPriceDisplyTV = (TextView) findViewById(R.id.lowestpricedisplay);
-        filterDialog = new Dialog(this);//android context.
-        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.cpu_dialogue, (ViewGroup) findViewById(R.id.customDialog_root_element));
 
-        filterDialog.setContentView(layout);
-
-        lowestPriceET = (EditText) filterDialog.findViewById(R.id.lowestpricecpu);
-        dismissBTN = (ImageView) filterDialog.findViewById(R.id.closeButton);//the "x" image in the top left
-        dismissBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                lowestPriceStr = lowestPriceET.getText().toString();
-                //lowestPriceDisplyTV.setText("Dismissed");
-                //Toast.makeText(CPUActivity.this, lowestPriceET.getText().toString(), Toast.LENGTH_SHORT).show();
-                filterDialog.dismiss();
-            }
-        });
-
-        filterDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialogInterface) {
-//                lowestPriceET = (EditText)filterDialog.findViewById(R.id.lowestprice);
-//                lowestPriceStr = lowestPriceET.getText().toString();
-                Toast.makeText(CPUActivity.this, lowestPriceET.getText().toString(), Toast.LENGTH_SHORT).show();
-//                lowestPriceDisplyTV.setText(lowestPriceET.getText().toString());
-
-            }
-        });
+        createDialog();
     }
 
 
