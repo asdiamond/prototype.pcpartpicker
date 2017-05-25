@@ -29,12 +29,12 @@ public class CPUActivity extends AppCompatActivity {
     //cardView Variables
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
-    RecyclerView.LayoutManager layoutManager;
+    LinearLayoutManager layoutManager;
     ArrayList<Contact> list = new ArrayList<Contact>();
     int[] image_id = {R.drawable.jesus};
-    String[] name = new String[]{"Kevin", "Alek", "Wolf"};
-    String[] email = new String[]{"Kevin_Creeping", "Alek_Coding", "Wolf_Bitching"};
-    String[] number = new String[]{"9156668945", "9157845123", "9156847951"};
+    String[] name = new String[]{"Kevin", "Alek", "Wolf", "Carlos","Jean"};
+    String[] email = new String[]{"Kevin_Creeping", "Alek_Coding", "Wolf_Bitching", "Carlos_Yes", "Jean_Doggin"};
+    String[] number = new String[]{"9156668945", "9157845123", "9156847951", "915856321", "9154789652"};
 
     public void createCardView(){
 /*
@@ -42,14 +42,16 @@ public class CPUActivity extends AppCompatActivity {
         email = getResources().getStringArray(R.array.person_email);
         mobile = getResources().getStringArray(R.array.person_number);*/
         int count = 0;
-        for (String Name : name)
+
+        for (String curr : name)
         {
-            Contact contact = new Contact(image_id[0],Name,email[count],number[count]);
+            Contact contact = new Contact(image_id[0],curr,email[count],number[count]);
             count++;
             list.add(contact);
         }
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         adapter = new ContactAdapter(list);
@@ -117,6 +119,7 @@ public class CPUActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Choose a CPU");//sets title on activity.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//this enables the back button in the toolbar. IMPORTANT, in order for this to work
         // you must specify android:parentActivityName in the android manifest under the activity you are referencing.
+        setContentView(R.layout.activity_cpu);
 
 //        lowestPriceDisplyTV = (TextView) findViewById(R.id.lowestpricedisplay);
 

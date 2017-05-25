@@ -5,15 +5,18 @@ package com.example.kevinparker.pcpartpicker;
  */
 
 public class Contact {
-    public Contact(int image_id, String name, String email, String mobile)
+    public Contact(int image_id, String name, double clockspeed, String mobile)
     {
         this.setImage_id(image_id);
         this.setName(name);
-        this.setEmail(email);
-        this.setMobile(mobile);
+        this.setClockspeed(clockspeed);
+        this.setCores(cores);
+        this.setTDP(tdp);
+        this.setPrice(price)
     }
     private int image_id;
-    private String name, email, mobile;
+    private double clockspeed, tdp, price
+    private String name, cores;
 
     public int getImage_id() {
         return image_id;
@@ -23,27 +26,43 @@ public class Contact {
         this.image_id = image_id;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public void setClockspeed(double clockspeed){
+        this.clockspeed = clockspeed;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCores(String cores) {
+        this.cores = cores;
     }
 
-    public String getMobile() {
-        return mobile;
+    public void setTDP(double tdp) {
+        this.tdp = tdp;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getClockspeed() {
+        return clockspeed;
+    }
+
+    public String getCores() {
+        return cores;
+    }
+
+    public double getTdp() {
+        return tdp;
+    }
+
+    public double getPrice() {
+        return price;
     }
 }
