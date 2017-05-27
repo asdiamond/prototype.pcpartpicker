@@ -3,6 +3,7 @@ package com.example.kevinparker.pcpartpicker;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,24 +18,33 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kevinparker.pcpartpicker.part_picker_api.ComputerPart;
+import com.example.kevinparker.pcpartpicker.part_picker_api.Main;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.parser.Parser;
+
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class CPUActivity extends AppCompatActivity {
     Dialog cpuFilterDialog;
     String lowestPriceStr;
     EditText lowestPriceET;
-    TextView lowestPriceDisplyTV;
     ImageView dismissBTN;
 
     //cardView Variables
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     LinearLayoutManager layoutManager;
-    ArrayList<Contact> list = new ArrayList<Contact>();
+    ArrayList<ComputerPart> list = new ArrayList<>();
     int[] image_id = {R.drawable.jesus};
+/*
     String[] name = new String[]{"Kevin", "Alek", "Wolf", "Carlos","Jean"};
     String[] email = new String[]{"Kevin_Creeping", "Alek_Coding", "Wolf_Bitching", "Carlos_Yes", "Jean_Doggin"};
-    String[] number = new String[]{"9156668945", "9157845123", "9156847951", "915856321", "9154789652"};
+    String[] number = new String[]{"9156668945", "9157845123", "9156847951", "915856321", "9154789652"};*/
 
     public void createCardView(){
 /*
@@ -42,19 +52,36 @@ public class CPUActivity extends AppCompatActivity {
         email = getResources().getStringArray(R.array.person_email);
         mobile = getResources().getStringArray(R.array.person_number);*/
         int count = 0;
-
+/*
         for (String curr : name)
         {
             Contact contact = new Contact(image_id[0],curr,email[count],number[count]);
             count++;
             list.add(contact);
-        }
+        }*/
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        adapter = new ContactAdapter(list);
+
+        try {
+            /**
+             * yes I know the full consequences of this line of code
+             * yes I know this is forbidden, its just a temporary fix
+             *
+             * (all network operations must be performed on an async task, not on the main thread)
+             */
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
+            String url = "https://pcpartpicker.com/products/cpu/fetch/?mode=list&xslug=&search=";
+            System.setProperty("http.agent", "Chrome");
+            Document doc = Jsoup.parse(new URL(url).openStream(), "UTF-8", "", Parser.xmlParser());
+            adapter = new ComputerPartAdapter(Main.getRawData(doc));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         recyclerView.setAdapter(adapter);
     }
 
