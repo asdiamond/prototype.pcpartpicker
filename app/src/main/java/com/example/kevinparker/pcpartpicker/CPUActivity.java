@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,12 +17,47 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class CPUActivity extends AppCompatActivity {
     Dialog cpuFilterDialog;
     String lowestPriceStr;
     EditText lowestPriceET;
     TextView lowestPriceDisplyTV;
     ImageView dismissBTN;
+
+    //cardView Variables
+    RecyclerView recyclerView;
+    RecyclerView.Adapter adapter;
+    LinearLayoutManager layoutManager;
+    ArrayList<Contact> list = new ArrayList<Contact>();
+    int[] image_id = {R.drawable.jesus};
+    String[] name = new String[]{"Kevin", "Alek", "Wolf", "Carlos","Jean"};
+    String[] email = new String[]{"Kevin_Creeping", "Alek_Coding", "Wolf_Bitching", "Carlos_Yes", "Jean_Doggin"};
+    String[] number = new String[]{"9156668945", "9157845123", "9156847951", "915856321", "9154789652"};
+
+    public void createCardView(){
+/*
+        name = getResources().getStringArray(R.array.person_name);
+        email = getResources().getStringArray(R.array.person_email);
+        mobile = getResources().getStringArray(R.array.person_number);*/
+        int count = 0;
+
+        for (String curr : name)
+        {
+            Contact contact = new Contact(image_id[0],curr,email[count],number[count]);
+            count++;
+            list.add(contact);
+        }
+        recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        adapter = new ContactAdapter(list);
+        recyclerView.setAdapter(adapter);
+    }
+
 
     public void createDialog() {
         cpuFilterDialog = new Dialog(this);//android context.
@@ -82,10 +119,12 @@ public class CPUActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Choose a CPU");//sets title on activity.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//this enables the back button in the toolbar. IMPORTANT, in order for this to work
         // you must specify android:parentActivityName in the android manifest under the activity you are referencing.
+        setContentView(R.layout.activity_cpu);
 
-        lowestPriceDisplyTV = (TextView) findViewById(R.id.lowestpricedisplay);
+//        lowestPriceDisplyTV = (TextView) findViewById(R.id.lowestpricedisplay);
 
         createDialog();
+        createCardView();
     }
 
 
