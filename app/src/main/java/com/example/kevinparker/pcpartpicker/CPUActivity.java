@@ -1,14 +1,10 @@
 package com.example.kevinparker.pcpartpicker;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,13 +14,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.kevinparker.pcpartpicker.part_picker_api.ComputerPart;
 import com.example.kevinparker.pcpartpicker.part_picker_api.Main;
 
 import org.jsoup.Jsoup;
@@ -33,7 +26,6 @@ import org.jsoup.parser.Parser;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 
 public class CPUActivity extends AppCompatActivity {
     Dialog cpuFilterDialog;
@@ -46,13 +38,12 @@ public class CPUActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     LinearLayoutManager layoutManager;
 
-    public void createCardView(){
+    public void createCardView(String url){
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        String url = "https://pcpartpicker.com/products/cpu/fetch/?mode=list&xslug=&search=";
         new Populater().execute(url);
     }
 
@@ -120,8 +111,9 @@ public class CPUActivity extends AppCompatActivity {
 
 //        lowestPriceDisplyTV = (TextView) findViewById(R.id.lowestpricedisplay);
 
+        String url = "https://pcpartpicker.com/products/cpu/fetch/?mode=list&xslug=&search=";
         createDialog();
-        createCardView();
+        createCardView(url);
     }
 
     private class Populater extends AsyncTask<String, Void, String> {

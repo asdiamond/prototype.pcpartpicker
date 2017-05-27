@@ -41,13 +41,6 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
         for (int i = 0; i < holder.textViews.length; i++) {
             holder.textViews[i].setText(curr[i]);
         }
-//        holder.cpu_name.setText(curr[1]);
-       /*
-        holder.cpu_clockspeed.setText(CON.getEmail());
-        holder.cpu_cores.setText(CON.getMobile());
-        holder.cpu_tdp.setText(CON.getTdp());
-        holder.cpu_price.setText(CON.getPrice());
-        */
     }
 
     @Override
