@@ -33,17 +33,7 @@ public class CPUActivity extends AppCompatActivity {
     EditText lowestPriceET;
     ImageView dismissBTN;
 
-    //cardView Variables
-    RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
-    LinearLayoutManager layoutManager;
-
-    public void createCardView(String url){
-        recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-        layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
+    public void populateCardview(String url){
         new Populater().execute(url);
     }
 
@@ -78,7 +68,6 @@ public class CPUActivity extends AppCompatActivity {
         });
     }
 
-    //creates option menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -94,12 +83,81 @@ public class CPUActivity extends AppCompatActivity {
             case R.id.filter_menu_item:
                 cpuFilterDialog.show();//shows the dialogue for filtering items
                 break;
-            case R.id.temp:
-                Toast.makeText(this, "Temp item selected", Toast.LENGTH_SHORT).show();
+            case R.id.cpu_name_menu_item:
+                if(item.getTitle().equals("CPU Name: Ascending")) {
+                    populateCardview(ascendingNameUrl);
+                    item.setTitle("CPU Name: Descending");
+                }
+                else {
+                    populateCardview(descendingNameUrl);
+                    item.setTitle("CPU Name: Ascending");
+                }
+                break;
+            case R.id.cpu_speed_menu_item:
+                if(item.getTitle().equals("Speed: Ascending")) {
+                    populateCardview(ascendingSpeedUrl);
+                    item.setTitle("Speed: Descending");
+                }
+                else {
+                    populateCardview(descendingSpeedUrl);
+                    item.setTitle("Speed: Ascending");
+                }
+                break;
+            case R.id.cpu_cores_menu_item:
+                if(item.getTitle().equals("Cores: Ascending")) {
+                    populateCardview(ascendingCoresUrl);
+                    item.setTitle("Cores: Descending");
+                }
+                else {
+                    populateCardview(descendingCoresUrl);
+                    item.setTitle("Cores: Ascending");
+                }
+                break;
+            case R.id.cpu_tdp_menu_item:
+                if(item.getTitle().equals("TDP: Ascending")) {
+                    populateCardview(ascendingTDPUrl);
+                    item.setTitle("TDP: Descending");
+                }
+                else {
+                    populateCardview(descendingTDPUrl);
+                    item.setTitle("TDP: Ascending");
+                }
+                break;
+            case R.id.cpu_price_menu_item:
+                if(item.getTitle().equals("Price: Ascending")) {
+                    populateCardview(ascendingPriceUrl);
+                    item.setTitle("Price: Descending");
+                }
+                else {
+                    populateCardview(descendingPriceUrl);
+                    item.setTitle("Price: Ascending");
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private String baseUrl = "https://pcpartpicker.com/products/cpu/fetch/?mode=list&xslug=&search=";
+    private String ascendingNameUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=name&page=1&mode=list&xslug=&search=";
+    private String descendingNameUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=-name&page=1&mode=list&xslug=&search=";
+
+    private String ascendingSpeedUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=clock&page=1&mode=list&xslug=&search=";
+    private String descendingSpeedUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=-clock&page=1&mode=list&xslug=&search=";
+
+    private String ascendingCoresUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=cores&page=1&mode=list&xslug=&search=";
+    private String descendingCoresUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=-cores&page=1&mode=list&xslug=&search=";
+
+    private String ascendingTDPUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=tdp&page=1&mode=list&xslug=&search=";
+    private String descendingTDPUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=-tdp&page=1&mode=list&xslug=&search=";
+
+    private String ascendingPriceUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=price&page=1&mode=list&xslug=&search=";
+    private String descendingPriceUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=-price&page=1&mode=list&xslug=&search=";
+
+
+    //cardView Variables
+    RecyclerView recyclerView;
+    RecyclerView.Adapter adapter;
+    LinearLayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,9 +169,15 @@ public class CPUActivity extends AppCompatActivity {
 
 //        lowestPriceDisplyTV = (TextView) findViewById(R.id.lowestpricedisplay);
 
-        String url = "https://pcpartpicker.com/products/cpu/fetch/?mode=list&xslug=&search=";
+        //for cardview/recyclerview
+        recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+
         createDialog();
-        createCardView(url);
+        populateCardview(baseUrl);
     }
 
     private class Populater extends AsyncTask<String, Void, String> {

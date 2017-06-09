@@ -1,5 +1,7 @@
 package com.example.kevinparker.pcpartpicker.part_picker_api;
 
+import android.util.Log;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -34,9 +36,11 @@ public class Main {
                 if(info.text().matches("\\(\\d+\\)")) continue;//number between parenthesis, the ratings
                 rawData[j][i] = info.text();
 //                System.out.println(rawData[j][i]);
+//                Log.i("", rawData[j][i]);
                 i++;
             }
 //            System.out.println();
+//            Log.i("", "\n");
             j++;
         }
         return rawData;

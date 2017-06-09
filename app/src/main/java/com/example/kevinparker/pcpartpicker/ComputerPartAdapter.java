@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,13 +35,12 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
     public void onBindViewHolder(ContactViewHolder holder, int position) {
         String[] curr = stringArrayList.get(position);
         holder.computer_part_img.setImageResource(R.drawable.core_i7);
-        /**
-         * here is what I want to do. Add a textview for everything in the array
-         * and display it...
-         */
-        for (int i = 0; i < holder.textViews.length; i++) {
+
+        for (int i = 0; i < 6; i++) {
+//            Log.i("", curr[i]);
             holder.textViews[i].setText(curr[i]);
         }
+//        Log.i("", "END OF OBJ");
     }
 
     @Override
@@ -48,30 +48,25 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
         return stringArrayList.size();
     }
 
-    public static class ContactViewHolder extends RecyclerView.ViewHolder
-    {
+    public static class ContactViewHolder extends RecyclerView.ViewHolder {
         ImageView computer_part_img;
 //        TextView cpu_name, cpu_clockspeed, cpu_cores, cpu_tdp, cpu_price;
         TextView[] textViews;
         public ContactViewHolder(View view) {
             super(view);
+            //TODO change the image programatically
             computer_part_img = (ImageView)view.findViewById(R.id.card_view_img);
-           /*
-            cpu_name = (TextView)view.findViewById(R.id.cpu_name);
-            cpu_clockspeed = (TextView)view.findViewById(R.id.cpu_clockspeed);
-            cpu_cores = (TextView)view.findViewById(R.id.cpu_cores);
-            cpu_tdp = (TextView)view.findViewById(R.id.cpu_tdp);
-            cpu_price = (TextView)view.findViewById(R.id.cpu_price);
-            */
-           //TODO set the number of textviews programatically if possible
+
+            //TODO set the number of textviews programatically if possible
+            //Hint try using the curr.length
+            //TODO add a textview to the end thats empty, needs some buffer space
             LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.card_view_linear_layout);
-            textViews = new TextView[5];
-            for (int i = 0; i < 5; i++) {
+            textViews = new TextView[6];
+            for (int i = 0; i < textViews.length; i++) {
                 textViews[i] = new TextView(view.getContext());
                 linearLayout.setBackgroundColor(Color.TRANSPARENT);
                 linearLayout.addView(textViews[i]);
             }
         }
-
     }
 }
