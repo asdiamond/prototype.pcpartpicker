@@ -20,18 +20,14 @@ public class CPUCoolerActivity extends AppCompatActivity {
         cpuCoolerFilterDialog = new Dialog(this);
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.cpu_cooler_filter_dialog, (ViewGroup) findViewById(R.id.cpuCoolerRootElement));
-
         cpuCoolerFilterDialog.setContentView(layout);
-
         closeBtn = (ImageView) cpuCoolerFilterDialog.findViewById(R.id.cpuCoolerCloseButton);
-
         closeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cpuCoolerFilterDialog.dismiss();
             }
         });
-
     }
 
     @Override

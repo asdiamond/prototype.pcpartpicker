@@ -69,34 +69,11 @@
             android:id="@+id/powersup_btn" />
 
         <Button
-            android:text="Optical Drive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/opticaldr_btn" />
-
-        <Button
-            android:text="OS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/os_btn" />
-
-        <Button
-            android:text="Software"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/software_btn" />
-
-        <Button
             android:text="Monitor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/monitor_btn" />
 
-        <Button
-            android:text="Other"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/other_btn" />
     </GridLayout>
 
 </RelativeLayout>

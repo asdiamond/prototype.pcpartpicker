@@ -180,7 +180,7 @@ public class CPUActivity extends AppCompatActivity {
         populateCardview(baseUrl);
     }
 
-    private class Populater extends AsyncTask<String, Void, String> {
+    protected class Populater extends AsyncTask<String, Void, String> {
         String[][] rawData;
         ProgressDialog progressDialog;
 

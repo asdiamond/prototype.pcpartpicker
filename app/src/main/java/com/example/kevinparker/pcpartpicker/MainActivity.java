@@ -62,8 +62,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    Button gpuBtn;
+    Button storageBtn;
+    public void createStorageBtn(){}
 
+    Button gpuBtn;
     public void createVideoCardBtn() {
         gpuBtn = (Button) findViewById(R.id.videoc_btn);
         final Intent startActivityIntent = new Intent(MainActivity.this, GpuActivity.class);
@@ -76,29 +78,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    Button oDriveBtn;
-    public void createOpticalDriveBtn(){}
-
-    Button monitorBtn;
-    public void createMonitorBtn(){}
-
-    Button peripheralsBtn;
-    public void createPeripheralsBtn(){}
-
-    Button osBtn;
-    public void createOperatingSystemBtn(){}
-
-    Button storageBtn;
-    public void createStorageBtn(){}
-
     Button caseBtn;
     public void createCaseBtn(){}
 
-    Button softwareBtn;
-    public void createSoftwareBtn(){}
+    Button powerSBtn;
+    public void createPowerSBtn(){}
 
-    Button externalStorageBtn;
-    public void createExternalStorageBtn(){}
+    Button monitorBtn;
+    public void createMonitorBtn(){}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
