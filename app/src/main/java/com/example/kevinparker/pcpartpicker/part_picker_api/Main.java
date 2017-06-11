@@ -6,6 +6,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.parser.Parser;
+import org.jsoup.select.Elements;
+
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,6 +30,13 @@ public class Main {
     public static String[][] getRawData(Document doc){
         String[][] rawData = new String[doc.getElementsByTag("tr").size()][];
         int j = 0;
+        /*
+        Elements links = doc.getElementsByTag("a");
+        for (Element curr : links) {
+            Log.i("", "pcpartpicker.com/product/" + curr.text());
+        }
+        */
+
         for (Element curr : doc.getElementsByTag("tr")) {
             int i = 0;
             rawData[j] = new String[curr.getElementsByTag("td").size() - 2];//one of the 2 base cases
@@ -35,11 +44,9 @@ public class Main {
                 if(info.text().equals("Add")) continue;
                 if(info.text().matches("\\(\\d+\\)")) continue;//number between parenthesis, the ratings
                 rawData[j][i] = info.text();
-//                System.out.println(rawData[j][i]);
 //                Log.i("", rawData[j][i]);
                 i++;
             }
-//            System.out.println();
 //            Log.i("", "\n");
             j++;
         }

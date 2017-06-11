@@ -2,33 +2,33 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/filter_menu_item"
         android:title="filter"
+        android:id="@+id/filter_menu_item"
         android:icon="@drawable/ic_filter_list_white_24dp"
         app:showAsAction="ifRoom" />
 
     <item
         android:title="CPU Name: Ascending"
-        android:id="@+id/cpu_name_menu_item"
+        android:id="@+id/cpu_name_mi"
         app:showAsAction="never" />
 
     <item
         android:title="Speed: Ascending"
-        android:id="@+id/cpu_speed_menu_item"
+        android:id="@+id/cpu_speed_mi"
         app:showAsAction="never" />
 
     <item
         android:title="Cores: Ascending"
-        android:id="@+id/cpu_cores_menu_item"
+        android:id="@+id/cpu_cores_mi"
         app:showAsAction="never" />
 
     <item
         android:title="TDP: Ascending"
-        android:id="@+id/cpu_tdp_menu_item"
+        android:id="@+id/cpu_tdp_mi"
         app:showAsAction="never" />
 
     <item
         android:title="Price: Ascending"
-        android:id="@+id/cpu_price_menu_item"
+        android:id="@+id/cpu_price_mi"
         app:showAsAction="never" />
 </menu>

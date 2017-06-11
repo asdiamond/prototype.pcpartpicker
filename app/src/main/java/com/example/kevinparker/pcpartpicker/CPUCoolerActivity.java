@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class CPUCoolerActivity extends AppCompatActivity {
+public class CPUCoolerActivity extends ComputerPartActivity {
     Dialog cpuCoolerFilterDialog;
     ImageView closeBtn;
 
@@ -41,15 +41,24 @@ public class CPUCoolerActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.filter_menu_itemcpucooler:
-                Toast.makeText(this, "Filter Selected", Toast.LENGTH_SHORT).show();
                 cpuCoolerFilterDialog.show();
                 break;
-            case R.id.temp1:
-                Toast.makeText(this, "Temp1 Selected", Toast.LENGTH_SHORT).show();
+            case R.id.cooler_name_mi:
+                swapMenuItemTitle(item);
+                break;
+            case R.id.cooler_rpm_mi:
+                swapMenuItemTitle(item);
+                break;
+            case R.id.cooler_noise_mi:
+                swapMenuItemTitle(item);
+                break;
+            case R.id.cooler_price_mi:
+                swapMenuItemTitle(item);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,5 +69,6 @@ public class CPUCoolerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         createDialog();
+        createCardview(R.id.cpu_cooler_recycler_view);
     }
 }
