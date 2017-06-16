@@ -2,7 +2,6 @@ package com.example.kevinparker.pcpartpicker;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,11 +9,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class CPUCoolerActivity extends ComputerPartActivity {
     Dialog cpuCoolerFilterDialog;
     ImageView closeBtn;
+
+    private String baseUrl = "https://pcpartpicker.com/products/cpu-cooler/fetch/?sort=&page=&mode=list&xslug=&search=";
 
     public void createDialog() {
         cpuCoolerFilterDialog = new Dialog(this);
@@ -70,5 +70,6 @@ public class CPUCoolerActivity extends ComputerPartActivity {
 
         createDialog();
         createCardview(R.id.cpu_cooler_recycler_view);
+        populateCardview(baseUrl);
     }
 }

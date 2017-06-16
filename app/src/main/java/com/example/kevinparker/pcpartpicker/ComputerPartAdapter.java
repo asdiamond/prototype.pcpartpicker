@@ -1,8 +1,6 @@
 package com.example.kevinparker.pcpartpicker;
 
-import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -35,6 +34,7 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
     public void onBindViewHolder(ContactViewHolder holder, int position) {
         String[] curr = stringArrayList.get(position);
         holder.computer_part_img.setImageResource(R.drawable.core_i7);
+        Log.i("", "" + curr.length);
 
         for (int i = 0; i < 6; i++) {
 //            Log.i("", curr[i]);

@@ -19,22 +19,9 @@ public class CPUActivity extends ComputerPartActivity {
     EditText lowestPriceET;
     ImageView dismissBTN;
 
-    private String baseUrl = "https://pcpartpicker.com/products/cpu/fetch/?mode=list&xslug=&search=";
-
-    private String ascendingNameUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=name&page=1&mode=list&xslug=&search=";
-    private String descendingNameUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=-name&page=1&mode=list&xslug=&search=";
-
-    private String ascendingSpeedUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=clock&page=1&mode=list&xslug=&search=";
-    private String descendingSpeedUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=-clock&page=1&mode=list&xslug=&search=";
-
-    private String ascendingCoresUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=cores&page=1&mode=list&xslug=&search=";
-    private String descendingCoresUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=-cores&page=1&mode=list&xslug=&search=";
-
-    private String ascendingTDPUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=tdp&page=1&mode=list&xslug=&search=";
-    private String descendingTDPUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=-tdp&page=1&mode=list&xslug=&search=";
-
-    private String ascendingPriceUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=price&page=1&mode=list&xslug=&search=";
-    private String descendingPriceUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=-price&page=1&mode=list&xslug=&search=";
+    //this seem to work as a good base url to change for the different search queries instead of
+    //manually grabbing urls this one can be modified pretty reliably.
+    private String baseUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=&page=&mode=list&xslug=&search=";
 
     @Override
     public void createDialog() {
@@ -75,50 +62,55 @@ public class CPUActivity extends ComputerPartActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * To be clear, what you are doing here is making queries to the pcpartpicker server.
+     * The  base url makes a blank or base query, queries require parameters but the base url
+     * leaves them blank. You are essentially inserting a parameter into the url to query the
+     * part database. Notice the negative signs for the inverted queries.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case R.id.filter_menu_item:
                 cpuFilterDialog.show();//shows the dialogue for filtering items
                 break;
             case R.id.cpu_name_mi:
                 if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(ascendingNameUrl);
+                    populateCardview(baseUrl.replace("sort=", "sort=name"));
                 } else {
-                    populateCardview(descendingNameUrl);
+                    populateCardview(baseUrl.replace("sort=", "sort=-name"));
                 }
                 swapMenuItemTitle(item);
                 break;
             case R.id.cpu_speed_mi:
                 if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(ascendingSpeedUrl);
+                    populateCardview(baseUrl.replace("sort=", "sort=clock"));
                 } else {
-                    populateCardview(descendingSpeedUrl);
+                    populateCardview(baseUrl.replace("sort=", "sort=-clock"));
                 }
                 swapMenuItemTitle(item);
                 break;
             case R.id.cpu_cores_mi:
                 if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(ascendingCoresUrl);
+                    populateCardview(baseUrl.replace("sort=", "sort=cores"));
                 } else {
-                    populateCardview(descendingCoresUrl);
+                    populateCardview(baseUrl.replace("sort=", "sort=-cores"));
                 }
                 swapMenuItemTitle(item);
                 break;
             case R.id.cpu_tdp_mi:
                 if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(ascendingTDPUrl);
+                    populateCardview(baseUrl.replace("sort=", "sort=tdp"));
                 } else {
-                    populateCardview(descendingTDPUrl);
+                    populateCardview(baseUrl.replace("sort=", "sort=-tdp"));
                 }
                 swapMenuItemTitle(item);
                break;
             case R.id.cpu_price_mi:
                 if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(ascendingPriceUrl);
+                    populateCardview(baseUrl.replace("sort=", "sort=price"));
                 } else {
-                    populateCardview(descendingPriceUrl);
+                    populateCardview(baseUrl.replace("sort=", "sort=-price"));
                 }
                 swapMenuItemTitle(item);
                 break;
