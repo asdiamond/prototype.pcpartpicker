@@ -2,7 +2,6 @@ package com.example.kevinparker.pcpartpicker;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,11 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-public class MotherboardActivity extends AppCompatActivity {
+public class MotherboardActivity extends ComputerPartActivity {
     Dialog motherboardActivityDialog;
     ImageView closeBtn;
+    String baseUrl = "https://pcpartpicker.com/products/motherboard/fetch/?sort=&page=&mode=list&xslug=&search=";
 
     public void createDialog() {
         motherboardActivityDialog = new Dialog(this);
@@ -44,11 +43,55 @@ public class MotherboardActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.filter_menu_motherboard:
-                Toast.makeText(this, "Filter selected", Toast.LENGTH_SHORT).show();
                 motherboardActivityDialog.show();
                 break;
-            case R.id.temp2:
-                Toast.makeText(this, "Temp2 selected", Toast.LENGTH_SHORT).show();
+            case R.id.mobo_name_mi:
+                if(item.getTitle().toString().contains("Ascending")){
+                    populateCardview(baseUrl.replace("sort=", "sort=name"));
+                } else {
+                    populateCardview(baseUrl.replace("sort=", "sort=-name"));
+                }
+                swapMenuItemTitle(item);
+                break;
+            case R.id.mobo_socket_mi:
+                if(item.getTitle().toString().contains("Ascending")){
+                    populateCardview(baseUrl.replace("sort=", "sort=socket"));
+                } else {
+                    populateCardview(baseUrl.replace("sort=", "sort=-socket"));
+                }
+                swapMenuItemTitle(item);
+                break;
+            case R.id.mobo_formfactor_mi:
+                if(item.getTitle().toString().contains("Ascending")){
+                    populateCardview(baseUrl.replace("sort=", "sort=formfactor"));
+                } else {
+                    populateCardview(baseUrl.replace("sort=", "sort=-formfactor"));
+                }
+                swapMenuItemTitle(item);
+                break;
+            case R.id.mobo_ramslots_mi:
+                if(item.getTitle().toString().contains("Ascending")){
+                    populateCardview(baseUrl.replace("sort=", "sort=ramslots"));
+                } else {
+                    populateCardview(baseUrl.replace("sort=", "sort=-ramslots"));
+                }
+                swapMenuItemTitle(item);
+                break;
+            case R.id.mobo_maxram_mi:
+                if(item.getTitle().toString().contains("Ascending")){
+                    populateCardview(baseUrl.replace("sort=", "sort=rammax"));
+                } else {
+                    populateCardview(baseUrl.replace("sort=", "sort=-rammax"));
+                }
+                swapMenuItemTitle(item);
+                break;
+            case R.id.mobo_price_mi:
+                if(item.getTitle().toString().contains("Ascending")){
+                    populateCardview(baseUrl.replace("sort=", "sort=price"));
+                } else {
+                    populateCardview(baseUrl.replace("sort=", "sort=-price"));
+                }
+                swapMenuItemTitle(item);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -63,5 +106,7 @@ public class MotherboardActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         createDialog();
+        createCardview(R.id.mobo_recycler_view);
+        populateCardview(baseUrl);
     }
 }

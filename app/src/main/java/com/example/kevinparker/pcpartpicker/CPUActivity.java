@@ -128,8 +128,8 @@ public class CPUActivity extends ComputerPartActivity {
 
 //        lowestPriceDisplyTV = (TextView) findViewById(R.id.lowestpricedisplay);
 
-        createCardview(R.id.cpu_recycler_view);
         createDialog();
+        createCardview(R.id.cpu_recycler_view);
         populateCardview(baseUrl);
     }
 }

@@ -17,7 +17,7 @@ import java.util.Arrays;
  * Created by doter on 5/5/2017.
  */
 
-public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapter.ContactViewHolder> {
+public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapter.ComputerPartViewHolder> {
     public ArrayList<String[]> stringArrayList = new ArrayList<>();
 
     public ComputerPartAdapter(String[][] arr) {
@@ -25,18 +25,18 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
     }
 
     @Override
-    public ContactViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ComputerPartViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_layout, parent, false);
-        return new ContactViewHolder(view);
+        return new ComputerPartViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ContactViewHolder holder, int position) {
+    public void onBindViewHolder(ComputerPartViewHolder holder, int position) {
         String[] curr = stringArrayList.get(position);
         holder.computer_part_img.setImageResource(R.drawable.core_i7);
-        Log.i("", "" + curr.length);
+        Log.i("CURR LENGTH", "" + curr.length);//5
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < curr.length; i++) {
 //            Log.i("", curr[i]);
             holder.textViews[i].setText(curr[i]);
         }
@@ -48,20 +48,20 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
         return stringArrayList.size();
     }
 
-    public static class ContactViewHolder extends RecyclerView.ViewHolder {
+    public static class ComputerPartViewHolder extends RecyclerView.ViewHolder {
         ImageView computer_part_img;
 //        TextView cpu_name, cpu_clockspeed, cpu_cores, cpu_tdp, cpu_price;
         TextView[] textViews;
-        public ContactViewHolder(View view) {
+        public ComputerPartViewHolder(View view) {
             super(view);
             //TODO change the image programatically
             computer_part_img = (ImageView)view.findViewById(R.id.card_view_img);
 
-            //TODO set the number of textviews programatically if possible
+            //TODO set the number of textviews programatically
             //Hint try using the curr.length
             //TODO add a textview to the end thats empty, needs some buffer space
             LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.card_view_linear_layout);
-            textViews = new TextView[6];
+            textViews = new TextView[7];
             for (int i = 0; i < textViews.length; i++) {
                 textViews[i] = new TextView(view.getContext());
                 linearLayout.setBackgroundColor(Color.TRANSPARENT);

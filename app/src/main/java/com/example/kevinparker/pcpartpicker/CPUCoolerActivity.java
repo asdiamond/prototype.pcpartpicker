@@ -44,15 +44,35 @@ public class CPUCoolerActivity extends ComputerPartActivity {
                 cpuCoolerFilterDialog.show();
                 break;
             case R.id.cooler_name_mi:
+                if(item.getTitle().toString().contains("Ascending")) {
+                    populateCardview(baseUrl.replace("sort=", "sort=name"));
+                } else {
+                    populateCardview(baseUrl.replace("sort=", "sort=-name"));
+                }
                 swapMenuItemTitle(item);
                 break;
             case R.id.cooler_rpm_mi:
+                if(item.getTitle().toString().contains("Ascending")){
+                    populateCardview(baseUrl.replace("sort=", "sort=rpm"));
+                } else {
+                    populateCardview(baseUrl.replace("sort=", "sort=-rpm"));
+                }
                 swapMenuItemTitle(item);
                 break;
             case R.id.cooler_noise_mi:
+                if(item.getTitle().toString().contains("Ascending")){
+                    populateCardview(baseUrl.replace("sort=", "sort=-rpm"));
+                } else {
+                    populateCardview(baseUrl.replace("sort=", "sort=-rpm"));
+                }
                 swapMenuItemTitle(item);
                 break;
             case R.id.cooler_price_mi:
+                if(item.getTitle().toString().contains("Ascending")){
+                    populateCardview(baseUrl.replace("sort=", "sort=price"));
+                } else {
+                    populateCardview(baseUrl.replace("sort=", "sort=-price"));
+                }
                 swapMenuItemTitle(item);
                 break;
         }

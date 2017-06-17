@@ -2,12 +2,39 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Filter2"
+    <item
+        android:title="Filter2"
         android:id="@+id/filter_menu_motherboard"
         android:icon="@drawable/ic_filter_list_white_24dp"
-        app:showAsAction="always" />
-    <item android:title="temp2"
-        android:id="@+id/temp2"
-        android:icon="@drawable/ic_filter_list_white_24dp"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:title="Motherboard Name: Ascending"
+        android:id="@+id/mobo_name_mi"
+        app:showAsAction="never"/>
+
+    <item
+        android:title="Socket/CPU: Ascending"
+        android:id="@+id/mobo_socket_mi"
+        app:showAsAction="never"/>
+
+    <item
+        android:title="Form Factor: Ascending"
+        android:id="@+id/mobo_formfactor_mi"
+        app:showAsAction="never"/>
+
+    <item
+        android:title="RAM Slots: Ascending"
+        android:id="@+id/mobo_ramslots_mi"
+        app:showAsAction="never"/>
+
+    <item
+        android:title="Max RAM: Ascending"
+        android:id="@+id/mobo_maxram_mi"
+        app:showAsAction="never"/>
+
+    <item
+        android:title="Price: Ascending"
+        android:id="@+id/mobo_price_mi"
+        app:showAsAction="never"/>
 </menu>
