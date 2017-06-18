@@ -79,7 +79,6 @@ public class CPUCoolerActivity extends ComputerPartActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -61,7 +61,7 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
             //Hint try using the curr.length
             //TODO add a textview to the end thats empty, needs some buffer space
             LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.card_view_linear_layout);
-            textViews = new TextView[7];
+            textViews = new TextView[9];
             for (int i = 0; i < textViews.length; i++) {
                 textViews[i] = new TextView(view.getContext());
                 linearLayout.setBackgroundColor(Color.TRANSPARENT);
