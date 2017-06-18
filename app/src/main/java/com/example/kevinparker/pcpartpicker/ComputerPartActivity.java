@@ -25,6 +25,15 @@ public abstract class ComputerPartActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     LinearLayoutManager layoutManager;
+    String baseUrl;
+
+    public String getSortedURL(MenuItem item, String query){
+        if(item.getTitle().toString().contains("Ascending")){
+            return baseUrl.replace("sort=", "sort=" + query);
+        } else {
+            return baseUrl.replace("sort=", "sort=-" + query);
+        }
+    }
 
     public void createCardview(int recyclerViewID) {
         recyclerView = (RecyclerView)findViewById(recyclerViewID);

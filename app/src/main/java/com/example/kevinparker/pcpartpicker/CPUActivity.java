@@ -19,10 +19,6 @@ public class CPUActivity extends ComputerPartActivity {
     EditText lowestPriceET;
     ImageView dismissBTN;
 
-    //this seem to work as a good base url to change for the different search queries instead of
-    //manually grabbing urls this one can be modified pretty reliably.
-    private String baseUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=&page=&mode=list&xslug=&search=";
-
     @Override
     public void createDialog() {
         cpuFilterDialog = new Dialog(this);//android context.
@@ -75,43 +71,23 @@ public class CPUActivity extends ComputerPartActivity {
                 cpuFilterDialog.show();//shows the dialogue for filtering items
                 break;
             case R.id.cpu_name_mi:
-                if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(baseUrl.replace("sort=", "sort=name"));
-                } else {
-                    populateCardview(baseUrl.replace("sort=", "sort=-name"));
-                }
+                populateCardview(getSortedURL(item, "name"));
                 swapMenuItemTitle(item);
                 break;
             case R.id.cpu_speed_mi:
-                if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(baseUrl.replace("sort=", "sort=clock"));
-                } else {
-                    populateCardview(baseUrl.replace("sort=", "sort=-clock"));
-                }
+                populateCardview(getSortedURL(item, "clock"));
                 swapMenuItemTitle(item);
                 break;
             case R.id.cpu_cores_mi:
-                if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(baseUrl.replace("sort=", "sort=cores"));
-                } else {
-                    populateCardview(baseUrl.replace("sort=", "sort=-cores"));
-                }
+                populateCardview(getSortedURL(item, "cores"));
                 swapMenuItemTitle(item);
                 break;
             case R.id.cpu_tdp_mi:
-                if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(baseUrl.replace("sort=", "sort=tdp"));
-                } else {
-                    populateCardview(baseUrl.replace("sort=", "sort=-tdp"));
-                }
+                populateCardview(getSortedURL(item, "tdp"));
                 swapMenuItemTitle(item);
                break;
             case R.id.cpu_price_mi:
-                if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(baseUrl.replace("sort=", "sort=price"));
-                } else {
-                    populateCardview(baseUrl.replace("sort=", "sort=-price"));
-                }
+                populateCardview(getSortedURL(item, "price"));
                 swapMenuItemTitle(item);
                 break;
         }
@@ -126,7 +102,9 @@ public class CPUActivity extends ComputerPartActivity {
         // you must specify android:parentActivityName in the android manifest under the activity you are referencing.
         setContentView(R.layout.activity_cpu);
 
-//        lowestPriceDisplyTV = (TextView) findViewById(R.id.lowestpricedisplay);
+        //this seem to work as a good base url to change for the different search queries instead of
+        //manually grabbing urls this one can be modified pretty reliably.
+        super.baseUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=&page=&mode=list&xslug=&search=";
 
         createDialog();
         createCardview(R.id.cpu_recycler_view);

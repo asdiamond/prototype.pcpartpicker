@@ -63,7 +63,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     Button storageBtn;
-    public void createStorageBtn(){}
+    public void createStorageBtn(){
+        storageBtn = (Button)findViewById(R.id.storage_btn);
+        final Intent startActivityIntent = new Intent(MainActivity.this, StorageActivity.class);
+        storageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(startActivityIntent);
+            }
+        });
+    }
 
     Button gpuBtn;
     public void createVideoCardBtn() {
@@ -95,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         createCPUCoolerBtn();
         createMotherboardBtn();
         createMemoryBtn();
+        createStorageBtn();
         createVideoCardBtn();
     }
 }

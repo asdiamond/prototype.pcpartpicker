@@ -31,9 +31,10 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".GpuActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".StorageActivity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>
