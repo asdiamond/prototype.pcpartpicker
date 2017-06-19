@@ -1,14 +1,13 @@
 package com.example.kevinparker.pcpartpicker;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-public class GpuActivity extends AppCompatActivity {
+public class GpuActivity extends ComputerPartActivity {
 
+    @Override
     public void createDialog() {
         //put the code to create the filter dialog here
     }
@@ -24,14 +23,32 @@ public class GpuActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.filterGPUactivity:
-                Toast.makeText(this, "Filter Menu Item Selected", Toast.LENGTH_SHORT).show();
+                //TODO make this filter
                 break;
-
-            case R.id.temp:
-                Toast.makeText(this, "Temp Menu Item Selected", Toast.LENGTH_SHORT).show();
+            case R.id.gpu_name_mi:
+                populateCardview(getSortedURL(item, "name"));
+                swapMenuItemTitle(item);
                 break;
-
-
+            case R.id.gpu_series_mi:
+                populateCardview(getSortedURL(item, "series"));
+                swapMenuItemTitle(item);
+                break;
+            case R.id.gpu_chipset_mi:
+                populateCardview(getSortedURL(item, "chipset"));
+                swapMenuItemTitle(item);
+                break;
+            case R.id.gpu_memory_mi:
+                populateCardview(getSortedURL(item, "memory"));
+                swapMenuItemTitle(item);
+                break;
+            case R.id.gpu_clock_mi:
+                populateCardview(getSortedURL(item, "clock"));
+                swapMenuItemTitle(item);
+                break;
+            case R.id.gpu_price_mi:
+                populateCardview(getSortedURL(item, "price"));
+                swapMenuItemTitle(item);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -42,5 +59,10 @@ public class GpuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gpu);
         getSupportActionBar().setTitle("Choose a Video Card");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        super.baseUrl = "https://pcpartpicker.com/products/video-card/fetch/?sort=&page=&mode=list&xslug=&search=";
+        createDialog();
+        createCardview(R.id.gpu_recycler_view);
+        populateCardview(baseUrl);
     }
 }
