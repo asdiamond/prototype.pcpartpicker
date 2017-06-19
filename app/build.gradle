@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.example.kevinparker.pcpartpicker"
+        applicationId 'com.codemine.pcpartpicker'
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -17,6 +17,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
@@ -27,7 +29,7 @@ dependencies {
     //for cardView
     compile 'com.android.support:appcompat-v7:25.2.0'
     //for jsoup, grabs dependency from maven central
-    compile group: 'org.jsoup', name: 'jsoup', version: '1.7.2'
+    compile 'org.jsoup:jsoup:1.7.2'
     compile 'com.android.support:support-core-utils:25.2.0'
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:support-v4:25.2.0'
