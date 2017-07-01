@@ -10,31 +10,42 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.codemine.unofficial.pcpartpicker.MainActivity">
+
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name="com.codemine.unofficial.pcpartpicker.CPUActivity"
-            android:parentActivityName="com.codemine.unofficial.pcpartpicker.MainActivity" />
+            android:name=".CPUActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.codemine.unofficial.pcpartpicker.CPUCoolerActivity"
-            android:parentActivityName="com.codemine.unofficial.pcpartpicker.MainActivity" />
+            android:name=".CPUCoolerActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.codemine.unofficial.pcpartpicker.MotherboardActivity"
-            android:parentActivityName="com.codemine.unofficial.pcpartpicker.MainActivity" />
+            android:name=".MotherboardActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.codemine.unofficial.pcpartpicker.MemoryActivity"
-            android:parentActivityName="com.codemine.unofficial.pcpartpicker.MainActivity" />
+            android:name=".MemoryActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.codemine.unofficial.pcpartpicker.GpuActivity"
-            android:parentActivityName="com.codemine.unofficial.pcpartpicker.MainActivity"/>
+            android:name=".GpuActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.codemine.unofficial.pcpartpicker.StorageActivity"
-            android:parentActivityName="com.codemine.unofficial.pcpartpicker.MainActivity"/>
+            android:name=".StorageActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".CaseActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PowerActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MonitorActivity"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

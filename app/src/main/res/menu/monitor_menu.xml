@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="filter"
+        android:icon="@drawable/ic_filter_list_white_24dp"
+        app:showAsAction="always" />
+
+    <item
+        android:title="Monitor Name: Ascending"
+        android:id="@+id/monitor_name_mi"
+        app:showasaction="never"/>
+
+    <item
+        android:title="Resolution: Ascending"
+        android:id="@+id/monitor_res_mi"
+        app:showasaction="never"/>
+
+    <item
+        android:title="Size: Ascending"
+        android:id="@+id/monitor_size_mi"
+        app:showasaction="never"/>
+
+    <item
+        android:title="Response Time: Ascending"
+        android:id="@+id/monitor_resptime_mi"
+        app:showasaction="never"/>
+
+    <item
+        android:title="IPS: Ascending"
+        android:id="@+id/monitor_ips_mi"
+        app:showasaction="never"/>
+
+    <item
+        android:title="Price: Ascending"
+        android:id="@+id/monitor_price_mi"
+        app:showasaction="never"/>
+
+</menu>
+

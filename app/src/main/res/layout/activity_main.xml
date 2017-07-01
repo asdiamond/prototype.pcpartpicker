@@ -54,7 +54,7 @@
             android:text="Video Card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/videoc_btn" />
+            android:id="@+id/gpu_btn" />
 
         <Button
             android:text="Case"

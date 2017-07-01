@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:title="Filter"
+        android:icon="@drawable/ic_filter_list_white_24dp"
+        app:showAsAction="ifRoom"/>
+
+    <item
         android:title="Storage Name: Ascending"
         android:id="@+id/storage_name_mi"
         app:showAsAction="never"

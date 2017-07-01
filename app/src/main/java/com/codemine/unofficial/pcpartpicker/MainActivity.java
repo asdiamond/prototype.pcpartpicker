@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,12 +15,11 @@ public class MainActivity extends AppCompatActivity {
         cpuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Starting CPU activity", Toast.LENGTH_SHORT).show();
                 MainActivity.this.startActivity(startActivityIntent);
             }
         });
     }
-    //
+
     Button cpuCoolerBtn;
     public void createCPUCoolerBtn(){
         cpuCoolerBtn = (Button)findViewById(R.id.cooler_btn);
@@ -29,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         cpuCoolerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Starting CPU Cooler activity", Toast.LENGTH_SHORT).show();
                 MainActivity.this.startActivity(startActivityIntent);
             }
         });
@@ -42,11 +39,9 @@ public class MainActivity extends AppCompatActivity {
         motherBoardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Starting Motherboard activity", Toast.LENGTH_SHORT).show();
                 MainActivity.this.startActivity(startActivityIntent);
             }
         });
-
     }
 
     Button memoryBtn;
@@ -56,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         memoryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Starting Memory Activity", Toast.LENGTH_SHORT).show();
                 MainActivity.this.startActivity(startActivityIntent);
             }
         });
@@ -76,25 +70,52 @@ public class MainActivity extends AppCompatActivity {
 
     Button gpuBtn;
     public void createVideoCardBtn() {
-        gpuBtn = (Button) findViewById(R.id.videoc_btn);
+        gpuBtn = (Button) findViewById(R.id.gpu_btn);
         final Intent startActivityIntent = new Intent(MainActivity.this, GpuActivity.class);
         gpuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MainActivity.this.startActivity(startActivityIntent);
-                Toast.makeText(MainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     Button caseBtn;
-    public void createCaseBtn(){}
+    public void createCaseBtn(){
+        caseBtn = (Button) findViewById(R.id.case_btn);
+        final Intent startActivityIntent = new Intent(MainActivity.this, CaseActivity.class);
+        caseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(startActivityIntent);
+
+            }
+        });
+    }
 
     Button powerSBtn;
-    public void createPowerSBtn(){}
+    public void createPowerSBtn(){
+        powerSBtn = (Button) findViewById(R.id.powersup_btn);
+        final Intent startActivityIntent = new Intent(MainActivity.this, PowerActivity.class);
+        powerSBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(startActivityIntent);
+            }
+        });
+    }
 
     Button monitorBtn;
-    public void createMonitorBtn(){}
+    public void createMonitorBtn(){
+        monitorBtn = (Button) findViewById(R.id.monitor_btn);
+        final Intent startActivityIntent = new Intent(MainActivity.this, MonitorActivity.class);
+        monitorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(startActivityIntent);
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,5 +127,8 @@ public class MainActivity extends AppCompatActivity {
         createMemoryBtn();
         createStorageBtn();
         createVideoCardBtn();
+        createCaseBtn();
+        createPowerSBtn();
+        createMonitorBtn();
     }
 }
