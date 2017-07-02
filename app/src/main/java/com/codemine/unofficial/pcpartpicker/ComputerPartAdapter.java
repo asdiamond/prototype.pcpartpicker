@@ -2,7 +2,6 @@ package com.codemine.unofficial.pcpartpicker;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by doter on 5/5/2017.
@@ -33,8 +33,9 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
     @Override
     public void onBindViewHolder(ComputerPartViewHolder holder, int position) {
         String[] curr = stringArrayList.get(position);
+
         holder.computer_part_img.setImageResource(R.drawable.no_image);
-        Log.i("CURR LENGTH", "" + curr.length);//5
+//        Log.i("CURR LENGTH", "" + curr.length);//5
 
         for (int i = 0; i < curr.length; i++) {
 //            Log.i("", curr[i]);
@@ -48,12 +49,13 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
         return stringArrayList.size();
     }
 
-    public static class ComputerPartViewHolder extends RecyclerView.ViewHolder {
+    public static class ComputerPartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView computer_part_img;
-//        TextView cpu_name, cpu_clockspeed, cpu_cores, cpu_tdp, cpu_price;
         TextView[] textViews;
         public ComputerPartViewHolder(View view) {
             super(view);
+            view.setOnClickListener(this);
+
             //TODO change the image programatically
             computer_part_img = (ImageView)view.findViewById(R.id.card_view_img);
 
@@ -68,5 +70,30 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
                 linearLayout.addView(textViews[i]);
             }
         }
+
+        @Override
+        public void onClick(View v) {
+            //https://www.youtube.com/watch?v=xEHHdpxW7iA\
+            //code to get links from raw doc.
+            /*
+            * Elements links = doc.getElementsByTag("a");
+//        Pattern pattern = Pattern.compile("&quot;#(.*?)\\&quot;");
+        Pattern pattern = Pattern.compile("&quot;#(.*?)\\\\");//should grab it without the annoying "\" at the end
+        //the original is still there just in case ;)
+        for (Element curr : links) {
+            if(curr.text().equals("Add")){
+                Matcher matcher = pattern.matcher(curr.toString());
+                if(matcher.find()){
+                    System.out.println(matcher.group(1));
+                }
+            }
+        }*/
+        }
+    }
+
+    @Override
+    public void onBindViewHolder(ComputerPartViewHolder holder, int position, List<Object> payloads) {
+
+        super.onBindViewHolder(holder, position, payloads);
     }
 }
