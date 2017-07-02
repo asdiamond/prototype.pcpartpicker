@@ -66,29 +66,25 @@ public class CPUActivity extends ComputerPartActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        swapMenuItemTitle(item);
         switch (item.getItemId()) {
             case R.id.filter_menu_item:
-                cpuFilterDialog.show();//shows the dialogue for filtering items
+//                cpuFilterDialog.show();//shows the dialogue for filtering items
                 break;
             case R.id.cpu_name_mi:
                 populateCardview(getSortedURL(item, "name"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.cpu_speed_mi:
                 populateCardview(getSortedURL(item, "clock"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.cpu_cores_mi:
                 populateCardview(getSortedURL(item, "cores"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.cpu_tdp_mi:
                 populateCardview(getSortedURL(item, "tdp"));
-                swapMenuItemTitle(item);
                break;
             case R.id.cpu_price_mi:
                 populateCardview(getSortedURL(item, "price"));
-                swapMenuItemTitle(item);
                 break;
         }
         return super.onOptionsItemSelected(item);

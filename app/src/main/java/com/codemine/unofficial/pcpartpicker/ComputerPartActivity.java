@@ -55,11 +55,14 @@ public abstract class ComputerPartActivity extends AppCompatActivity {
             //the user pressing the back button.
             return;
         }
-        if(item.getTitle().toString().contains("Ascending")){
+        else if(item.getTitle().toString().contains("Ascending")){
             item.setTitle(item.getTitle().toString().replace("Ascending", "Descending"));
         }
-        else {
+        else if (item.getTitle().toString().contains("Descending")){//the filter items will contain neither.
             item.setTitle(item.getTitle().toString().replace("Descending", "Ascending"));
+        }
+        else{
+            return;
         }
     }
 

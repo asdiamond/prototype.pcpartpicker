@@ -39,25 +39,22 @@ public class CPUCoolerActivity extends ComputerPartActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        swapMenuItemTitle(item);
         switch (item.getItemId()){
             case R.id.filter_menu_itemcpucooler:
                 cpuCoolerFilterDialog.show();
                 break;
             case R.id.cooler_name_mi:
                 populateCardview(getSortedURL(item, "name"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.cooler_rpm_mi:
                 populateCardview(getSortedURL(item, "rpm"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.cooler_noise_mi:
                 populateCardview(getSortedURL(item, "db"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.cooler_price_mi:
                 populateCardview(getSortedURL(item, "price"));
-                swapMenuItemTitle(item);
                 break;
         }
         return super.onOptionsItemSelected(item);

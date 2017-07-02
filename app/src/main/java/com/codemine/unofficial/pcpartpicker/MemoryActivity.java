@@ -21,40 +21,33 @@ public class MemoryActivity extends ComputerPartActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        swapMenuItemTitle(item);
         switch (item.getItemId()){
             case R.id.filter_menu_itemmemory:
                 break;
             case R.id.ram_name_mi:
                 populateCardview(getSortedURL(item, "name"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.ram_speed_mi:
                 populateCardview(getSortedURL(item, "speed"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.ram_type_mi:
                 populateCardview(getSortedURL(item, "formfactor"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.ram_cas_mi:
                 populateCardview(getSortedURL(item, "cas"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.ram_modules_mi:
                 populateCardview(getSortedURL(item, "modules"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.ram_size_mi:
                 populateCardview(getSortedURL(item, "capacity"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.ram_priceGB_mi:
                 populateCardview(getSortedURL(item, "ppgb"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.ram_price_mi:
                 populateCardview(getSortedURL(item, "price"));
-                swapMenuItemTitle(item);
                 break;
         }
         return super.onOptionsItemSelected(item);

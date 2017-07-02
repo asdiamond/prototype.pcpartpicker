@@ -22,38 +22,31 @@ public class StorageActivity extends ComputerPartActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        swapMenuItemTitle(item);
         switch(item.getItemId()){
             case R.id.storage_name_mi:
                 populateCardview(getSortedURL(item, "name"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.storage_series_mi:
                 populateCardview(getSortedURL(item, "series"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.storage_form_mi:
                 populateCardview(getSortedURL(item, "formfactor"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.storage_type_mi:
                 populateCardview(getSortedURL(item, "type"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.storage_capacity_mi:
                 populateCardview(getSortedURL(item, "capacity"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.storage_cache_mi:
                 populateCardview(getSortedURL(item, "cache"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.storage_priceGB_mi:
                 populateCardview(getSortedURL(item, "ppgb"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.storage_price_mi:
                 populateCardview(getSortedURL(item, "price"));
-                swapMenuItemTitle(item);
                 break;
         }
         return super.onOptionsItemSelected(item);

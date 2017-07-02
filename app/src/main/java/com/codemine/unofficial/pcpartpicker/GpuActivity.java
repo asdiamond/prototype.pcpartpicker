@@ -23,33 +23,28 @@ public class GpuActivity extends ComputerPartActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        swapMenuItemTitle(item);
         switch (item.getItemId()) {
             case R.id.filterGPUactivity:
                 //TODO make this filter
                 break;
             case R.id.gpu_name_mi:
                 populateCardview(getSortedURL(item, "name"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.gpu_series_mi:
                 populateCardview(getSortedURL(item, "series"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.gpu_chipset_mi:
                 populateCardview(getSortedURL(item, "chipset"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.gpu_memory_mi:
                 populateCardview(getSortedURL(item, "memory"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.gpu_clock_mi:
                 populateCardview(getSortedURL(item, "clock"));
-                swapMenuItemTitle(item);
                 break;
             case R.id.gpu_price_mi:
                 populateCardview(getSortedURL(item, "price"));
-                swapMenuItemTitle(item);
                 break;
         }
         return super.onOptionsItemSelected(item);

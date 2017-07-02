@@ -41,57 +41,28 @@ public class MotherboardActivity extends ComputerPartActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        swapMenuItemTitle(item);
         switch (item.getItemId()){
             case R.id.filter_menu_motherboard:
                 motherboardActivityDialog.show();
                 break;
             case R.id.mobo_name_mi:
-                if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(baseUrl.replace("sort=", "sort=name"));
-                } else {
-                    populateCardview(baseUrl.replace("sort=", "sort=-name"));
-                }
-                swapMenuItemTitle(item);
+                populateCardview(getSortedURL(item, "name"));
                 break;
             case R.id.mobo_socket_mi:
-                if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(baseUrl.replace("sort=", "sort=socket"));
-                } else {
-                    populateCardview(baseUrl.replace("sort=", "sort=-socket"));
-                }
-                swapMenuItemTitle(item);
+                populateCardview(getSortedURL(item, "socket"));
                 break;
             case R.id.mobo_formfactor_mi:
-                if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(baseUrl.replace("sort=", "sort=formfactor"));
-                } else {
-                    populateCardview(baseUrl.replace("sort=", "sort=-formfactor"));
-                }
-                swapMenuItemTitle(item);
+                populateCardview(getSortedURL(item, "formfactor"));
                 break;
             case R.id.mobo_ramslots_mi:
-                if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(baseUrl.replace("sort=", "sort=ramslots"));
-                } else {
-                    populateCardview(baseUrl.replace("sort=", "sort=-ramslots"));
-                }
-                swapMenuItemTitle(item);
+                populateCardview(getSortedURL(item, "ramslots"));
                 break;
             case R.id.mobo_maxram_mi:
-                if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(baseUrl.replace("sort=", "sort=rammax"));
-                } else {
-                    populateCardview(baseUrl.replace("sort=", "sort=-rammax"));
-                }
-                swapMenuItemTitle(item);
+                populateCardview(getSortedURL(item, "rammax"));
                 break;
             case R.id.mobo_price_mi:
-                if(item.getTitle().toString().contains("Ascending")){
-                    populateCardview(baseUrl.replace("sort=", "sort=price"));
-                } else {
-                    populateCardview(baseUrl.replace("sort=", "sort=-price"));
-                }
-                swapMenuItemTitle(item);
+                populateCardview(getSortedURL(item, "price"));
                 break;
         }
         return super.onOptionsItemSelected(item);
