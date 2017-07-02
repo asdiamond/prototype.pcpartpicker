@@ -33,7 +33,7 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
     @Override
     public void onBindViewHolder(ComputerPartViewHolder holder, int position) {
         String[] curr = stringArrayList.get(position);
-        holder.computer_part_img.setImageResource(R.drawable.core_i7);
+        holder.computer_part_img.setImageResource(R.drawable.no_image);
         Log.i("CURR LENGTH", "" + curr.length);//5
 
         for (int i = 0; i < curr.length; i++) {
