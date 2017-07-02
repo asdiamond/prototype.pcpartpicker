@@ -50,6 +50,11 @@ public abstract class ComputerPartActivity extends AppCompatActivity {
     }
 
     public void swapMenuItemTitle(MenuItem item) {
+        if (item.getTitle() == null) {
+            //IMPORTANT this return prevents crashes when onOptionsItemSelected() is called from
+            //the user pressing the back button.
+            return;
+        }
         if(item.getTitle().toString().contains("Ascending")){
             item.setTitle(item.getTitle().toString().replace("Ascending", "Descending"));
         }

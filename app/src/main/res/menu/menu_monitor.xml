@@ -7,38 +7,34 @@
         app:showAsAction="always"/>
 
     <item
-        android:title="Power Supply Name: Ascending"
-        android:id="@+id/psupply_name_mi"
+        android:title="Monitor Name: Ascending"
+        android:id="@+id/monitor_name_mi"
         />
 
     <item
-        android:title="Series: Ascending"
-        android:id="@+id/psupply_series_mi"
+        android:title="Resolution: Ascending"
+        android:id="@+id/monitor_res_mi"
         />
 
     <item
-        android:title="Form: Ascending"
-        android:id="@+id/psupply_form_mi"
+        android:title="Size: Ascending"
+        android:id="@+id/monitor_size_mi"
         />
 
     <item
-        android:title="Efficiency: Ascending"
-        android:id="@+id/psupply_efficiency_mi"
+        android:title="Response Time: Ascending"
+        android:id="@+id/monitor_resptime_mi"
         />
 
     <item
-        android:title="Watts: Ascending"
-        android:id="@+id/psupply_watts_mi"
+        android:title="IPS: Ascending"
+        android:id="@+id/monitor_ips_mi"
         />
 
     <item
-        android:title="Modular: Ascending"
-        android:id="@+id/psupply_modular_mi"
+        android:title="Price: Ascending"
+        android:id="@+id/monitor_price_mi"
         />
 
-    <item
-        android:title="Price"
-        android:id="@+id/psupply_price_mi"
-        />
 
 </menu>
