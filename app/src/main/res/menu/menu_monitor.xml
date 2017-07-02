@@ -4,40 +4,41 @@
     <item
         android:title="filter"
         android:icon="@drawable/ic_filter_list_white_24dp"
-        app:showAsAction="always" />
+        app:showAsAction="always"/>
 
     <item
         android:title="Power Supply Name: Ascending"
         android:id="@+id/psupply_name_mi"
-        app:showasaction="never"/>
+        />
 
     <item
         android:title="Series: Ascending"
         android:id="@+id/psupply_series_mi"
-        app:showasaction="never"/>
+        />
 
     <item
         android:title="Form: Ascending"
         android:id="@+id/psupply_form_mi"
-        app:showasaction="never"/>
+        />
 
     <item
         android:title="Efficiency: Ascending"
         android:id="@+id/psupply_efficiency_mi"
-        app:showasaction="never"/>
+        />
 
     <item
         android:title="Watts: Ascending"
         android:id="@+id/psupply_watts_mi"
-        app:showasaction="never"/>
+        />
 
     <item
         android:title="Modular: Ascending"
         android:id="@+id/psupply_modular_mi"
-        app:showasaction="never"/>
+        />
 
     <item
         android:title="Price"
         android:id="@+id/psupply_price_mi"
-        app:showasaction="never"/>
+        />
+
 </menu>
