@@ -15,6 +15,7 @@ import org.jsoup.parser.Parser;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * Created by Aleksandr on 6/10/2017.
@@ -51,9 +52,8 @@ public abstract class ComputerPartActivity extends AppCompatActivity {
 
     public void swapMenuItemTitle(MenuItem item) {
         if (item.getTitle() == null) {
-            //IMPORTANT this return prevents crashes when onOptionsItemSelected() is called from
+            //IMPORTANT this prevents crashes when onOptionsItemSelected() is called from
             //the user pressing the back button.
-            return;
         }
         else if(item.getTitle().toString().contains("Ascending")){
             item.setTitle(item.getTitle().toString().replace("Ascending", "Descending"));
@@ -61,14 +61,12 @@ public abstract class ComputerPartActivity extends AppCompatActivity {
         else if (item.getTitle().toString().contains("Descending")){//the filter items will contain neither.
             item.setTitle(item.getTitle().toString().replace("Descending", "Ascending"));
         }
-        else{
-            return;
-        }
     }
 
     class Populater extends AsyncTask<String, Void, String> {
         String[][] rawData;
         ProgressDialog progressDialog;
+        ArrayList<String> urls;
 
         @Override
         protected void onPreExecute() {
@@ -87,6 +85,7 @@ public abstract class ComputerPartActivity extends AppCompatActivity {
             try {
                 Document doc = Jsoup.parse(new URL(params[0]).openStream(), "UTF-8", "", Parser.xmlParser());
                 rawData = Main.getRawData(doc);
+                urls = Main.getUrlsFromDoc(doc);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -95,7 +94,7 @@ public abstract class ComputerPartActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            adapter = new ComputerPartAdapter(rawData);
+            adapter = new ComputerPartAdapter(rawData, urls, getApplicationContext());
             recyclerView.setAdapter(adapter);
             progressDialog.dismiss();
         }

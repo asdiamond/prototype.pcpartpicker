@@ -4,10 +4,13 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.parser.Parser;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * CPU link: https://pcpartpicker.com/products/cpu/fetch/?mode=list&xslug=&search=
@@ -48,6 +51,24 @@ public class Main {
             j++;
         }
         return rawData;
+    }
+
+    public static ArrayList<String> getUrlsFromDoc(Document doc){
+        ArrayList<String> urls = new ArrayList<>();
+        Elements links = doc.getElementsByTag("a");
+//        Pattern pattern = Pattern.compile("&quot;#(.*?)\\&quot;");
+        Pattern pattern = Pattern.compile("&quot;#(.*?)\\\\");//should grab it without the annoying "\" at the end
+        //the original is still there just in case ;)
+        for (Element curr : links) {
+            if(curr.text().equals("Add")){
+                Matcher matcher = pattern.matcher(curr.toString());
+                if(matcher.find()){
+//                    System.out.println(matcher.group(1));
+                    urls.add(matcher.group(1));
+                }
+            }
+        }
+        return urls;
     }
 
     private static ArrayList<CPU> getCPUsFromDoc(Document doc){

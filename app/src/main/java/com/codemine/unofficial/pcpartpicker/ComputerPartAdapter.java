@@ -1,7 +1,12 @@
 package com.codemine.unofficial.pcpartpicker;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +16,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by doter on 5/5/2017.
@@ -19,9 +23,13 @@ import java.util.List;
 
 public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapter.ComputerPartViewHolder> {
     public ArrayList<String[]> stringArrayList = new ArrayList<>();
+    public ArrayList<String> urls = new ArrayList<>();
+    public Context context;
 
-    public ComputerPartAdapter(String[][] arr) {
+    public ComputerPartAdapter(String[][] arr, ArrayList<String> urls, Context context) {//add url
         this.stringArrayList = new ArrayList<>(Arrays.asList(arr));
+        this.urls = urls;
+        this.context = context;
     }
 
     @Override
@@ -34,14 +42,27 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
     public void onBindViewHolder(ComputerPartViewHolder holder, int position) {
         String[] curr = stringArrayList.get(position);
 
+        holder.url = "https://pcpartpicker.com/product/" + urls.get(position);//setup ViewHolder
+        //TODO set image dynamically
         holder.computer_part_img.setImageResource(R.drawable.no_image);
-//        Log.i("CURR LENGTH", "" + curr.length);//5
-
+        //set data from String[] to views
         for (int i = 0; i < curr.length; i++) {
-//            Log.i("", curr[i]);
             holder.textViews[i].setText(curr[i]);
         }
-//        Log.i("", "END OF OBJ");
+
+        try {
+            //TODO add null checks (shouldnt be necessary but for a failsafe)
+            final Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(holder.url));
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(browserIntent);
+                }
+            });
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            Log.i("Uri FAILED", curr[0]);
+        }
     }
 
     @Override
@@ -49,12 +70,17 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
         return stringArrayList.size();
     }
 
-    public static class ComputerPartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class ComputerPartViewHolder extends RecyclerView.ViewHolder {
+
         ImageView computer_part_img;
         TextView[] textViews;
+        CardView cardView;
+        String url;
+
         public ComputerPartViewHolder(View view) {
             super(view);
-            view.setOnClickListener(this);
+
+            cardView = (CardView)view.findViewById(R.id.card_view);
 
             //TODO change the image programatically
             computer_part_img = (ImageView)view.findViewById(R.id.card_view_img);
@@ -71,29 +97,6 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
             }
         }
 
-        @Override
-        public void onClick(View v) {
-            //https://www.youtube.com/watch?v=xEHHdpxW7iA\
-            //code to get links from raw doc.
-            /*
-            * Elements links = doc.getElementsByTag("a");
-//        Pattern pattern = Pattern.compile("&quot;#(.*?)\\&quot;");
-        Pattern pattern = Pattern.compile("&quot;#(.*?)\\\\");//should grab it without the annoying "\" at the end
-        //the original is still there just in case ;)
-        for (Element curr : links) {
-            if(curr.text().equals("Add")){
-                Matcher matcher = pattern.matcher(curr.toString());
-                if(matcher.find()){
-                    System.out.println(matcher.group(1));
-                }
-            }
-        }*/
-        }
     }
 
-    @Override
-    public void onBindViewHolder(ComputerPartViewHolder holder, int position, List<Object> payloads) {
-
-        super.onBindViewHolder(holder, position, payloads);
-    }
 }
