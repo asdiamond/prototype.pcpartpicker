@@ -7,7 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
-import com.codemine.unofficial.pcpartpicker.part_picker_api.Main;
+import com.codemine.unofficial.pcpartpicker.part_picker_api.PartPickerScraper;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,7 +18,10 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * Created by Aleksandr on 6/10/2017.
+ * The superclass of all activities that display computer parts.
+ * This includes all methods to sort throught urls, populate recyclerviews as
+ * well as some code that makes sorting from the overlow menu cleaner.
+ * This also includes the async task that grabs the Urls and raw data to be displayed.
  */
 
 public abstract class ComputerPartActivity extends AppCompatActivity {
@@ -54,6 +57,7 @@ public abstract class ComputerPartActivity extends AppCompatActivity {
         if (item.getTitle() == null) {
             //IMPORTANT this prevents crashes when onOptionsItemSelected() is called from
             //the user pressing the back button.
+            //if this is removed the other checks throw nullpointers, so keep it here.
         }
         else if(item.getTitle().toString().contains("Ascending")){
             item.setTitle(item.getTitle().toString().replace("Ascending", "Descending"));
@@ -84,8 +88,8 @@ public abstract class ComputerPartActivity extends AppCompatActivity {
             System.setProperty("http.agent", "Chrome");
             try {
                 Document doc = Jsoup.parse(new URL(params[0]).openStream(), "UTF-8", "", Parser.xmlParser());
-                rawData = Main.getRawData(doc);
-                urls = Main.getUrlsFromDoc(doc);
+                rawData = PartPickerScraper.getRawData(doc);
+                urls = PartPickerScraper.getUrlsFromDoc(doc);
             } catch (IOException e) {
                 e.printStackTrace();
             }

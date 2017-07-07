@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class GpuActivity extends ComputerPartActivity {
 
@@ -15,7 +14,6 @@ public class GpuActivity extends ComputerPartActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        Toast.makeText(this, "inside onCreateOptionsMenu", Toast.LENGTH_SHORT).show();
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.gpu_activity_menu, menu);
         return super.onCreateOptionsMenu(menu);

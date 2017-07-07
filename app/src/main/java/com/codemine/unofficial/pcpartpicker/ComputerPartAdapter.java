@@ -18,18 +18,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Created by doter on 5/5/2017.
+ * Computer Part Adapter Class with ComputerPartViewHolder inner class.
+ * This class is an adapter for populating the recyclerview of each computer part class.
+ * The ComputerPartViewHolder is described above it.
  */
 
 public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapter.ComputerPartViewHolder> {
     public ArrayList<String[]> stringArrayList = new ArrayList<>();
     public ArrayList<String> urls = new ArrayList<>();
     public Context context;
+    public static int listSize;
 
     public ComputerPartAdapter(String[][] arr, ArrayList<String> urls, Context context) {//add url
         this.stringArrayList = new ArrayList<>(Arrays.asList(arr));
         this.urls = urls;
         this.context = context;
+
+        listSize = arr[0].length;
     }
 
     @Override
@@ -70,6 +75,12 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
         return stringArrayList.size();
     }
 
+    /**
+     * Holds the views for each computerpart that is displayed as a card to the user
+     * The amount of textview in each Holder is decided by the static variable
+     * listSize in the enclosing class. Right now this seems to be the best way
+     * to programatically set the amount of textviews in each holder.
+     */
     public static class ComputerPartViewHolder extends RecyclerView.ViewHolder {
 
         ImageView computer_part_img;
@@ -79,17 +90,12 @@ public class ComputerPartAdapter extends RecyclerView.Adapter<ComputerPartAdapte
 
         public ComputerPartViewHolder(View view) {
             super(view);
-
             cardView = (CardView)view.findViewById(R.id.card_view);
-
             //TODO change the image programatically
             computer_part_img = (ImageView)view.findViewById(R.id.card_view_img);
 
-            //TODO set the number of textviews programatically
-            //Hint try using the curr.length
-            //TODO add a textview to the end thats empty, needs some buffer space
             LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.card_view_linear_layout);
-            textViews = new TextView[9];
+            textViews = new TextView[ComputerPartAdapter.listSize + 1]; //for space
             for (int i = 0; i < textViews.length; i++) {
                 textViews[i] = new TextView(view.getContext());
                 linearLayout.setBackgroundColor(Color.TRANSPARENT);
