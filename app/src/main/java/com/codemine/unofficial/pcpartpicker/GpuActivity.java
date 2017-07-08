@@ -23,8 +23,10 @@ public class GpuActivity extends ComputerPartActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         swapMenuItemTitle(item);
         switch (item.getItemId()) {
-            case R.id.filterGPUactivity:
-                //TODO make this filter
+//            case R.id.filterGPUactivity:
+//                break;
+            case R.id.gpu_info_mi:
+                infoDialog.show();
                 break;
             case R.id.gpu_name_mi:
                 populateCardview(getSortedURL(item, "name"));
@@ -51,13 +53,14 @@ public class GpuActivity extends ComputerPartActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("Choose a GPU");
+        getSupportActionBar().setTitle("GPUs");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_gpu);
 
         super.baseUrl = "https://pcpartpicker.com/products/video-card/fetch/?sort=&page=&mode=list&xslug=&search=";
         createDialog();
-        createCardview(R.id.gpu_recycler_view);
+        createRecyclerView(R.id.gpu_recycler_view);
         populateCardview(baseUrl);
+        createInfoDialog(new String[]{"Name", "Series", "Chipset", "Memory", "Core Clock", "Price"});
     }
 }

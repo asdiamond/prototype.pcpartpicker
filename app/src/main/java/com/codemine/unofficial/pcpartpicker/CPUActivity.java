@@ -68,8 +68,11 @@ public class CPUActivity extends ComputerPartActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         swapMenuItemTitle(item);
         switch (item.getItemId()) {
-            case R.id.filter_menu_item:
+//            case R.id.filter_menu_item:
 //                cpuFilterDialog.show();//shows the dialogue for filtering items
+//                break;
+            case R.id.cpu_info_mi:
+                infoDialog.show();
                 break;
             case R.id.cpu_name_mi:
                 populateCardview(getSortedURL(item, "name"));
@@ -93,7 +96,7 @@ public class CPUActivity extends ComputerPartActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("Choose a CPU");//sets title on activity.
+        getSupportActionBar().setTitle("CPUs");//sets title on activity.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//this enables the back button in the toolbar. IMPORTANT, in order for this to work
         // you must specify android:parentActivityName in the android manifest under the activity you are referencing.
         setContentView(R.layout.activity_cpu);
@@ -103,7 +106,8 @@ public class CPUActivity extends ComputerPartActivity {
         super.baseUrl = "https://pcpartpicker.com/products/cpu/fetch/?sort=&page=&mode=list&xslug=&search=";
 
         createDialog();
-        createCardview(R.id.cpu_recycler_view);
+        createRecyclerView(R.id.cpu_recycler_view);
         populateCardview(baseUrl);
+        createInfoDialog(new String[]{"CPU Name", "Speed", "Cores", "TDP", "Price"});
     }
 }

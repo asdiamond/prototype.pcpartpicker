@@ -23,6 +23,9 @@ public class MonitorActivity extends ComputerPartActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         swapMenuItemTitle(item);
         switch (item.getItemId()){
+            case R.id.monitor_info_mi:
+                infoDialog.show();
+                break;
             case R.id.monitor_name_mi:
                 populateCardview(getSortedURL(item, "name"));
                 break;
@@ -49,13 +52,14 @@ public class MonitorActivity extends ComputerPartActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitor);
-        getSupportActionBar().setTitle("Choose a Monitor");
+        getSupportActionBar().setTitle("Monitors");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         super.baseUrl = "https://pcpartpicker.com/products/monitor/fetch/?sort=&page=&mode=list&xslug=&search=";
         createDialog();
-        createCardview(R.id.monitor_recycler_view);
+        createRecyclerView(R.id.monitor_recycler_view);
         populateCardview(baseUrl);
+        createInfoDialog(new String[]{"Name", "Resolution", "Size", "Response Time", "IPS", "Price"});
     }
 
 }

@@ -23,7 +23,10 @@ public class MemoryActivity extends ComputerPartActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         swapMenuItemTitle(item);
         switch (item.getItemId()){
-            case R.id.filter_menu_itemmemory:
+//            case R.id.filter_menu_itemmemory:
+//                break;
+            case R.id.ram_info_mi:
+                infoDialog.show();
                 break;
             case R.id.ram_name_mi:
                 populateCardview(getSortedURL(item, "name"));
@@ -58,11 +61,12 @@ public class MemoryActivity extends ComputerPartActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory);
 
-        getSupportActionBar().setTitle("Choose memory");
+        getSupportActionBar().setTitle("Memory");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         createDialog();
-        createCardview(R.id.memory_recycler_view);
+        createRecyclerView(R.id.memory_recycler_view);
         populateCardview(baseUrl);
+        createInfoDialog(new String[]{"Name", "Speed", "Type", "CAS", "Modules", "Size", "Price/GB", "Price"});
     }
 }

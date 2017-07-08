@@ -43,8 +43,11 @@ public class MotherboardActivity extends ComputerPartActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         swapMenuItemTitle(item);
         switch (item.getItemId()){
-            case R.id.filter_menu_motherboard:
-                motherboardActivityDialog.show();
+//            case R.id.filter_menu_motherboard:
+//                motherboardActivityDialog.show();
+//                break;
+            case R.id.mobo_info_mi:
+                infoDialog.show();
                 break;
             case R.id.mobo_name_mi:
                 populateCardview(getSortedURL(item, "name"));
@@ -73,11 +76,12 @@ public class MotherboardActivity extends ComputerPartActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_motherboard);
 
-        getSupportActionBar().setTitle("Choose a Motherboard");
+        getSupportActionBar().setTitle("Motherboards");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         createDialog();
-        createCardview(R.id.mobo_recycler_view);
+        createRecyclerView(R.id.mobo_recycler_view);
         populateCardview(baseUrl);
+        createInfoDialog(new String[]{"Name", "Socket/CPU", "Form Factor", "RAM Slots", "Max RAM", "Price"});
     }
 }

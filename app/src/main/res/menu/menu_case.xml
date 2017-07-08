@@ -2,10 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
+<!--    <item
         android:title="filter"
         android:icon="@drawable/ic_filter_list_white_24dp"
-        app:showAsAction="always"/>
+        app:showAsAction="always"/>-->
+    <item
+        android:title="case_info_mi"
+        android:id="@+id/case_info_mi"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_info_outline_white_24dp"/>
 
     <item
         android:title="Case Name: Ascending"

@@ -23,6 +23,9 @@ public class CaseActivity extends ComputerPartActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         swapMenuItemTitle(item);
         switch(item.getItemId()){
+            case R.id.case_info_mi:
+                infoDialog.show();
+                break;
             case R.id.case_name_mi:
                 populateCardview(getSortedURL(item, "name"));
                 break;
@@ -49,12 +52,13 @@ public class CaseActivity extends ComputerPartActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_case);
-        getSupportActionBar().setTitle("Choose a Case");
+        getSupportActionBar().setTitle("Cases");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         super.baseUrl = "https://pcpartpicker.com/products/case/fetch/?sort=&page=&mode=list&xslug=&search=";
         createDialog();
-        createCardview(R.id.case_recycler_view);
+        createRecyclerView(R.id.case_recycler_view);
         populateCardview(baseUrl);
+        createInfoDialog(new String[]{"Name", "Type", "Ext. 5.25\"", "Int. 3.5\"", "Power Supply", "Price"});
     }
 }

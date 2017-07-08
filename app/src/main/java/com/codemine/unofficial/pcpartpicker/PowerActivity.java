@@ -22,8 +22,10 @@ public class PowerActivity extends ComputerPartActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         swapMenuItemTitle(item);
-
         switch (item.getItemId()){
+            case R.id.psupply_info_mi:
+                infoDialog.show();
+                break;
             case R.id.psupply_name_mi:
                 populateCardview(getSortedURL(item, "name"));
                 break;
@@ -53,12 +55,13 @@ public class PowerActivity extends ComputerPartActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_power);
-        getSupportActionBar().setTitle("Choose a Power Supply");
+        getSupportActionBar().setTitle("Power Supplies");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         super.baseUrl = "https://pcpartpicker.com/products/power-supply/fetch/?sort=&page=&mode=list&xslug=&search=";
         createDialog();
-        createCardview(R.id.power_recycler_view);
+        createRecyclerView(R.id.power_recycler_view);
         populateCardview(baseUrl);
+        createInfoDialog(new String[]{"Name", "Series", "Form", "Efficiency", "Watts", "Modular", "Price"});
     }
 }

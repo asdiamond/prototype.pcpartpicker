@@ -24,6 +24,9 @@ public class StorageActivity extends ComputerPartActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         swapMenuItemTitle(item);
         switch(item.getItemId()){
+            case R.id.storage_info_mi:
+                infoDialog.show();
+                break;
             case R.id.storage_name_mi:
                 populateCardview(getSortedURL(item, "name"));
                 break;
@@ -56,12 +59,13 @@ public class StorageActivity extends ComputerPartActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storage);
-        getSupportActionBar().setTitle("Choose Storage");
+        getSupportActionBar().setTitle("Storage");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         super.baseUrl = "https://pcpartpicker.com/products/internal-hard-drive/fetch/?sort=&page=&mode=list&xslug=&search=";
         createDialog();
-        createCardview(R.id.storage_recycler_view);
+        createRecyclerView(R.id.storage_recycler_view);
         populateCardview(baseUrl);
+        createInfoDialog(new String[]{"Name", "Series", "Form", "Type", "Capacity", "Cache", "Price/GB", "Price"});
     }
 }

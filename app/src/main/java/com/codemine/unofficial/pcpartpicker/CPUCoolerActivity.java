@@ -41,8 +41,11 @@ public class CPUCoolerActivity extends ComputerPartActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         swapMenuItemTitle(item);
         switch (item.getItemId()){
-            case R.id.filter_menu_itemcpucooler:
-                cpuCoolerFilterDialog.show();
+//            case R.id.filter_menu_itemcpucooler:
+//                cpuCoolerFilterDialog.show();
+//                break;
+            case R.id.cooler_info_mi:
+                infoDialog.show();
                 break;
             case R.id.cooler_name_mi:
                 populateCardview(getSortedURL(item, "name"));
@@ -65,11 +68,12 @@ public class CPUCoolerActivity extends ComputerPartActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cpucooler);
 
-        getSupportActionBar().setTitle("Choose A CPU Cooler");
+        getSupportActionBar().setTitle("Coolers");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         createDialog();
-        createCardview(R.id.cpu_cooler_recycler_view);
+        createRecyclerView(R.id.cpu_cooler_recycler_view);
         populateCardview(baseUrl);
+        createInfoDialog(new String[]{"Name", "Fan RPM", "Noise Level", "Price"});
     }
 }
