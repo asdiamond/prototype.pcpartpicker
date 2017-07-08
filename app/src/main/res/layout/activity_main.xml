@@ -1,102 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.kevinparker.pcpartpicker.MainActivity">
+    tools:context="com.codemine.unofficial.pcpartpicker.MainActivity">
 
-
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:columnCount="3"
-        android:rowCount="5"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
         android:orientation="horizontal"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_weight="1" >
 
         <Button
-            android:text="CPU"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/cpu_btn" />
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/cpu_btn"
+            android:text="CPUs"/>
 
         <Button
-            android:text="CPU Cooler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/cooler_btn" />
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/cooler_btn"
+            android:text="CPU Coolers"/>
 
         <Button
-            android:text="Motherboard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/motherb_btn" />
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/monitor_btn"
+            android:text="Monitors"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:orientation="horizontal"
+        android:layout_weight="1" >
 
         <Button
-            android:text="Memory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/memory_btn" />
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/motherb_btn"
+            android:text="Motherboards"/>
 
         <Button
-            android:text="Storage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/storage_btn" />
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/memory_btn"
+            android:text="Ram"/>
 
         <Button
-            android:text="Video Card"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/videoc_btn" />
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/powersup_btn"
+            android:text="Power Supplies"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:orientation="horizontal"
+        android:layout_weight="1" >
 
         <Button
-            android:text="Case"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/case_btn" />
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/storage_btn"
+            android:text="Storage"/>
 
         <Button
-            android:text="Power Supply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/powersup_btn" />
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/gpu_btn"
+            android:text="GPUs"/>
 
         <Button
-            android:text="Optical Drive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/opticaldr_btn" />
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/case_btn"
+            android:text="Cases"/>
+    </LinearLayout>
 
-        <Button
-            android:text="OS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/os_btn" />
-
-        <Button
-            android:text="Software"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/software_btn" />
-
-        <Button
-            android:text="Monitor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/monitor_btn" />
-
-        <Button
-            android:text="Other"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/other_btn" />
-    </GridLayout>
-
-</RelativeLayout>
+</LinearLayout>

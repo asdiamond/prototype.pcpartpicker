@@ -8,6 +8,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.kevinparker.pcpartpicker.MotherboardActivity">
+    tools:context="com.codemine.unofficial.pcpartpicker.MotherboardActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/mobo_recycler_view"
+        android:scrollbars="vertical">
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

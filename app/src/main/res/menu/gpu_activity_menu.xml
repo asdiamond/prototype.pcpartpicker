@@ -2,13 +2,50 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
+<!--    <item
         android:title="Filter"
         android:id="@+id/filterGPUactivity"
         app:showAsAction="always"
-        android:icon="@drawable/ic_filter_list_white_24dp" />
+        android:icon="@drawable/ic_filter_list_white_24dp" />-->
+    <item
+        android:title="gpu_info_mi"
+        android:id="@+id/gpu_info_mi"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_info_outline_white_24dp"/>
 
     <item
-        android:title="Temp"
-        android:id="@+id/temp" />
+        android:title="GPU Name: Ascending"
+        android:id="@+id/gpu_name_mi"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Series: Ascending"
+        android:id="@+id/gpu_series_mi"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Chipset: Ascending"
+        android:id="@+id/gpu_chipset_mi"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Memory: Ascending"
+        android:id="@+id/gpu_memory_mi"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Core Clock: Ascending"
+        android:id="@+id/gpu_clock_mi"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Price: Ascending"
+        android:id="@+id/gpu_price_mi"
+        app:showAsAction="never"
+        />
 </menu>

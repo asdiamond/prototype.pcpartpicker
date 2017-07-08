@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--
+    <item
+        android:title="Filter"
+        android:icon="@drawable/ic_filter_list_white_24dp"
+        app:showAsAction="ifRoom"/>
+-->
+    <item
+        android:title="storage_info_mi"
+        android:id="@+id/storage_info_mi"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_info_outline_white_24dp"/>
+
+    <item
+        android:title="Storage Name: Ascending"
+        android:id="@+id/storage_name_mi"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Series: Ascending"
+        android:id="@+id/storage_series_mi"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Form: Ascending"
+        android:id="@+id/storage_form_mi"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Type: Ascending"
+        android:id="@+id/storage_type_mi"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Capacity: Ascending"
+        android:id="@+id/storage_capacity_mi"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Cache: Ascending"
+        android:id="@+id/storage_cache_mi"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Price/GB: Ascending"
+        android:id="@+id/storage_priceGB_mi"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Price: Ascending"
+        android:id="@+id/storage_price_mi"
+        app:showAsAction="never"
+        />
+</menu>

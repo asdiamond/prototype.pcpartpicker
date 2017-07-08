@@ -1,12 +1,8 @@
 *.iml
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
 .DS_Store
-/build/android-profile
-/build/generated
-/build/intermediates
 /captures
 .externalNativeBuild
-/build/libs/jsoup-1.10.2.jar
+/.idea
+build/

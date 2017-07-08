@@ -2,14 +2,54 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:title="temp3"
-        android:id="@+id/temp3"
-        app:showAsAction="never"/>
-    <item
+<!--   <item
         android:title="filter"
         android:id="@+id/filter_menu_itemmemory"
         android:icon="@drawable/ic_filter_list_white_24dp"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>-->
+    <item
+        android:title="ram_info_mi"
+        android:id="@+id/ram_info_mi"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_info_outline_white_24dp"/>
 
+   <item
+      android:title="Ram Name: Ascending"
+      android:id="@+id/ram_name_mi"
+      app:showAsAction="never"/>
+
+   <item
+       android:title="Speed: Ascending"
+       android:id="@+id/ram_speed_mi"
+       app:showAsAction="never"/>
+
+   <item
+       android:title="Type: Ascending"
+       android:id="@+id/ram_type_mi"
+       app:showAsAction="never"/>
+
+   <item
+       android:title="CAS: Ascending"
+       android:id="@+id/ram_cas_mi"
+       app:showAsAction="never"/>
+
+   <item
+       android:title="Modules: Ascending"
+       android:id="@+id/ram_modules_mi"
+       app:showAsAction="never"/>
+
+   <item
+       android:title="Size: Ascending"
+       android:id="@+id/ram_size_mi"
+       app:showAsAction="never"/>
+
+   <item
+       android:title="Price/GB: Ascending"
+       android:id="@+id/ram_priceGB_mi"
+       app:showAsAction="never"/>
+
+   <item
+       android:title="Price: Ascending"
+       android:id="@+id/ram_price_mi"
+       app:showAsAction="never"/>
 </menu>

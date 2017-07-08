@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <item
+        android:title="filter"
+        android:icon="@drawable/ic_filter_list_white_24dp"
+        app:showAsAction="always"/>-->
+    <item
+        android:title="psupply_info_mi"
+        android:id="@+id/psupply_info_mi"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_info_outline_white_24dp"/>
+
+    <item
+        android:title="Power Supply Name: Ascending"
+        android:id="@+id/psupply_name_mi"
+        />
+
+    <item
+        android:title="Series: Ascending"
+        android:id="@+id/psupply_series_mi"
+        />
+
+    <item
+        android:title="Form: Ascending"
+        android:id="@+id/psupply_form_mi"
+        />
+
+    <item
+        android:title="Efficiency: Ascending"
+        android:id="@+id/psupply_efficiency_mi"
+        />
+
+    <item
+        android:title="Watts: Ascending"
+        android:id="@+id/psupply_watts_mi"
+        />
+
+    <item
+        android:title="Modular: Ascending"
+        android:id="@+id/psupply_modular_mi"
+        />
+
+    <item
+        android:title="Price"
+        android:id="@+id/psupply_price_mi"
+        />
+
+</menu>
