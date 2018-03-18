@@ -1,6 +1,5 @@
-# CodeMineProject1
-Initial Commit.
-The official Unofficial repository for the pcpartpicker app! This app depends only on jsoup as well as several android support repositories.
+# prototype.pcpartpicker
+Uses Jsoup and web scraping to dynamically display some elements from pcpartpicker.com
 The basic layout of the app is as follows 
   Each button from the MainActivity.java starts an activity extending the ComputerPartActivity abstract class, which itself extends the AppCompatActivity.
   
